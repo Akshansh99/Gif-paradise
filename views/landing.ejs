@@ -3,7 +3,8 @@
     <h1>Gif - Paradise</h1>
     <h1>Welcome!</h1>
 
-    <video autoplay muted loop src="https://thumbs.gfycat.com/WarlikeEnormousCow-mobile.mp4"></video>
-    <video autoplay muted loop src="https://thumbs.gfycat.com/ShockedPettyHyrax-mobile.mp4"></video>
+    <%  post.forEach(newPost=>{ %>
+        <video autoplay muted loop src="<%=newPost.url%>"></video>
+        <%});%>
 
-    <%- include("partials/footer") %>
+            <%- include("partials/footer") %>

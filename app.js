@@ -6,13 +6,22 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
+const post = require("./models/post")
 
 //Basic configurations for views and mongoDB
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect('mongodb://localhost:27017/gif-paradise', { useNewUrlParser: true, useUnifiedTopology: true });
-
+// mongoose.connect('mongodb://localhost:27017/gif-paradise', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://Gif-paradise:gifparadise123@cluster0-2h4su.mongodb.net/test?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Connected to DB!')
+}).catch(err => {
+    console.log('Error:', err.message);
+});
 
 //Auth settings
 //Dependencies used here:
@@ -43,10 +52,27 @@ app.use((req, res, next) => {
 =======================
 */
 
+//Random posts added
+
+// post.create(postOne, (err, postCreated) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Post created", postCreated);
+//     }
+// });
+
+
 //Landing Page
 //Most of the routes redirect here
 app.get("/", (req, res) => {
-    res.render("landing");
+    post.find({}, (err, postcreated) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("landing", { post: postcreated });
+        }
+    });
 });
 
 //Register page-GET route
