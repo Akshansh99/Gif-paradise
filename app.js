@@ -52,15 +52,38 @@ app.use((req, res, next) => {
 =======================
 */
 
-//Random posts added
+// Random posts added
+// var postOne = [{
+//     title:"ab",
+//     url:"https://thumbs.gfycat.com/ShockedPettyHyrax-mobile.mp4"
+// },{
+//     title:"sbs",
+//     url:"https://thumbs.gfycat.com/NeighboringSoftKangaroo-mobile.mp4"
+// },{
+//     title:"es",
+//     url:"https://thumbs.gfycat.com/LeafyTinyLeopard-mobile.mp4"
+// },{
+//     title:"lt",
+//     url:"https://thumbs.gfycat.com/MasculineLittleCicada-mobile.mp4"
+// },{
+//     title:"rd",
+//     url:"https://thumbs.gfycat.com/AcrobaticOffbeatHarborseal-mobile.mp4"
+// },{
+//     title:"s",
+//     url:"https://thumbs.gfycat.com/AltruisticCircularHoneybadger-mobile.mp4"
+// }];
 
-// post.create(postOne, (err, postCreated) => {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log("Post created", postCreated);
-//     }
-// });
+// postOne.forEach(Newpost=>{
+//     post.create(Newpost, (err, postCreated) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log("Post created", postCreated);
+//         }
+//     });
+// })
+
+
 
 
 //Landing Page
@@ -70,7 +93,7 @@ app.get("/", (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            res.render("landing", { post: postcreated });
+            res.render("landing", {post: postcreated });
         }
     });
 });

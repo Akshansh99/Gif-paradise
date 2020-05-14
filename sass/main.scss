@@ -1,0 +1,101 @@
+// google font - secular one
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+/* Color Theme Swatches in Hex */
+// $Graphic-Design-1-hex: #886FBF;
+// $Graphic-Design-2-hex: #8E80BF;
+// $Graphic-Design-3-hex: rgb(82, 71, 160);
+// $Graphic-Design-4-hex: #ADAABF;
+// $Graphic-Design-5-hex: #171C26;
+
+
+$color-purple1:#886FBF;
+$color-background:#ADAABF;
+$color-purple2:#8E80BF;
+$color-dark:#171C26;
+$color-purple3:#574BA6;
+$color-gray:#eee;
+
+//basic
+
+html{
+    box-sizing:border-box;
+    font-size:10px;
+    background:$color-gray;
+}
+
+*{
+    box-sizing:inherit;
+    font-family:'Secular One',sans-serif;
+    margin:0;
+    padding:0;
+    font-size:1.6rem;
+}
+
+//navbar
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background-image: linear-gradient(to bottom right,$color-purple3,$color-purple2);
+    .nav-logo{
+        margin: 1rem;
+
+        a{
+            font-size:2rem;
+            color:$color-gray;
+            text-decoration: none;
+        }
+    }
+
+    .nav-items{
+        display:flex;
+        list-style:none;
+        max-width:50rem;
+        width: 45%;
+        justify-content:space-between;
+        .nav-item{
+            margin:1.5rem;
+            a{
+                color:$color-gray;
+                text-decoration:none;
+            }
+        }
+        
+    }
+}
+
+.container{
+    width:80%;
+    margin:auto;
+    .gif-container{
+        display:flex;
+        .column{
+            width:30%;
+            margin:0 auto;
+        }
+        .gif{
+            // align-self:;
+            margin:2rem 0;
+            
+        
+            img{
+                width: 100%;
+                border-radius: 1rem;
+            }
+            &:hover{
+                transform:scale(1.05);
+                cursor:pointer;
+            }
+        }
+    }
+}
+
+//Media Query
+
+@media(max-width:1100px){
+    .nav-items{
+        display:none !important;
+    }
+}

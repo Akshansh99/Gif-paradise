@@ -1,10 +1,94 @@
 <%- include("partials/header") %>
 
-    <h1>Gif - Paradise</h1>
-    <h1>Welcome!</h1>
+        <div class="container">
+            <div class="gif-container">
+                <div class="column">
+                   
+                </div>
+                <div class="column">
+                    
+                </div>
+                <div class="column">
+                    
+                </div>
+            </div>
+        </div>
 
-    <%  post.forEach(newPost=>{ %>
-        <video autoplay muted loop src="<%=newPost.url%>"></video>
+    
+    
+    <!-- SCRIPT FOR ADDING GIF IN GIF-CONTAINER  -->
+    <script>
+        var gifContainer = document.querySelector('.gif-container');
+        // var columns = document.querySelectorAll('.column');
+        var columnNumber= 0;
+        var s = 0;
+
+        console.log(window.innerWidth);
+        var currentColumnIndex = 0;
+        function createColumn(){
+            if(window.innerWidth>1500){
+                columnNumber = 4;
+            }else if(window.innerWidth>900){
+                columnNumber = 3;
+            }else if(window.innerWidth>700){
+                columnNumber = 2;
+            }else{
+                columnNumber = 1;
+            }
+
+            var s = columnNumber;
+
+            gifContainer.innerHTML = "";
+
+            for(var i = 0;i<columnNumber;i++){
+                var div = document.createElement('div');
+                div.classList.add('column');
+                gifContainer.appendChild(div);
+            }
+            fillingColumns();
+        }
+
+        function fillingColumns(){
+            <% post.forEach(newPost=>{%>
+            var columns = document.querySelectorAll('.column');
+            var n = columns.length;
+            var div = document.createElement('div');
+            div.classList.add('gif');
+            div.innerHTML= `<img src="<%=newPost.url%>">`;
+            columns[currentColumnIndex].appendChild(div);
+            if(currentColumnIndex==n-1){
+                currentColumnIndex=0;
+            }else{
+                currentColumnIndex++;
+            }
         <%});%>
+        }
 
-            <%- include("partials/footer") %>
+        function init(){
+            createColumn();
+        }
+
+        init();
+        window.addEventListener('resize',()=>{
+            var c = 0;
+            if(window.innerWidth>1500){
+                c = 4;
+            }else if(window.innerWidth>900){
+                c = 3;
+            }else if(window.innerWidth>700){
+                c = 2;
+            }else{
+                c = 1;
+            }
+
+
+            if(c!=s){
+                init();
+            }
+            
+        });
+        
+    </script>
+
+    <script src="js/landing.js"></script>
+    <%- include("partials/footer") %>
