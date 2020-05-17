@@ -18,84 +18,275 @@ $color-gray:#eee;
 
 //basic
 
-html{
-    box-sizing:border-box;
-    font-size:10px;
-    background:$color-gray;
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+    background: $color-gray;
 }
 
-*{
-    box-sizing:inherit;
-    font-family:'Secular One',sans-serif;
-    margin:0;
-    padding:0;
-    font-size:1.6rem;
+* {
+    box-sizing: inherit;
+    font-family: 'Secular One', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
 }
 
 //navbar
 
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background-image: linear-gradient(to bottom right,$color-purple3,$color-purple2);
-    .nav-logo{
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, $color-purple3, $color-purple2);
+
+    .nav-logo {
         margin: 1rem;
 
-        a{
-            font-size:2rem;
-            color:$color-gray;
+        a {
+            font-size: 2rem;
+            color: $color-gray;
             text-decoration: none;
         }
     }
 
-    .nav-items{
-        display:flex;
-        list-style:none;
-        max-width:50rem;
+    .nav-items {
+        display: flex;
+        list-style: none;
+        max-width: 50rem;
         width: 45%;
-        justify-content:space-between;
-        .nav-item{
-            margin:1.5rem;
-            a{
-                color:$color-gray;
-                text-decoration:none;
+        justify-content: space-between;
+
+        .nav-item {
+            margin: 1.5rem;
+
+            a {
+                color: $color-gray;
+                text-decoration: none;
             }
         }
-        
+
     }
 }
 
-.container{
-    width:80%;
-    margin:auto;
-    .gif-container{
-        display:flex;
-        .column{
-            width:30%;
-            margin:0 auto;
+.container {
+    width: 80%;
+    margin: auto;
+
+    .gif-container {
+        display: flex;
+
+        .column {
+            width: 30%;
+            margin: 0 auto;
         }
-        .gif{
+
+        .gif {
             // align-self:;
-            margin:2rem 0;
-            
-        
-            img{
+            margin: 2rem 0;
+
+
+            img {
                 width: 100%;
                 border-radius: 1rem;
             }
-            &:hover{
-                transform:scale(1.05);
-                cursor:pointer;
+
+            &:hover {
+                transform: scale(1.05);
+                cursor: pointer;
             }
         }
     }
 }
 
+//sharma --------------
+.containerG {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    padding: 20px;
+    //margin: 0 15;
+
+    width: 80%;
+
+    main {
+        width: 70%;
+        padding: 10px 20px;
+        border-right: 1px solid $color-dark;
+
+        .gif {
+            h1 {
+                font-size: 3rem;
+                color: $color-dark;
+            }
+
+            .author {
+                text-align: right;
+                opacity: 0.8;
+            }
+
+            video {
+                width: 100%;
+            }
+
+            button {
+                width: 70px;
+                padding: 5px 10px;
+
+                &.prev {
+                    background-color: $color-background;
+                }
+
+                &.next {
+                    color: white;
+                    background-color: $color-purple1;
+                }
+            }
+        }
+
+        h1 {
+            margin-top: 3rem;
+            font-size: 2rem;
+        }
+
+        // same as gif landing
+        .related-container {
+
+            display: flex;
+
+            .related-column {
+                width: 30%;
+                //margin: 0 auto;
+            }
+
+            .related-column:nth-of-type(1) {
+                margin-right: 5%;
+            }
+
+            .related-column:nth-of-type(2) {
+                margin-right: 5%;
+            }
+
+
+            .related-gif {
+                // align-self:;
+                margin: 2rem 0;
+                width: 100%;
+
+
+                img {
+                    width: 100%;
+                    border-radius: 1rem;
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    aside {
+        flex: 1;
+        margin-top: 30px;
+        padding: 10px 20px;
+        width: 30%;
+
+        .share {
+            h3 {
+                margin-top: 30px;
+            }
+
+            .fa {
+                padding: 20px;
+                font-size: 20px;
+                width: 60px;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 50%;
+            }
+
+            /* Add a hover effect if you want */
+            .fa:hover {
+                opacity: 0.7;
+
+            }
+
+            /* Set a specific color for each brand */
+
+            /* Facebook */
+            .fa-facebook {
+                background: #3B5998;
+                color: white;
+            }
+
+            /* Twitter */
+            .fa-twitter {
+                background: #55ACEE;
+                color: white;
+            }
+
+            .fa-reddit {
+                background: #ff5700;
+                color: white;
+            }
+
+            .fa-instagram {
+                background: #125688;
+                color: white;
+            }
+
+        }
+
+        button {
+            width: 70px;
+            border-radius: 10%;
+            text-shadow: $color-background;
+            box-shadow: $color-purple2;
+        }
+
+        .views {
+            opacity: 0.6;
+        }
+
+        .link {
+
+            margin-top: 30px;
+            display: inline-block;
+
+            .url {
+                max-width: 100%;
+                background-color: white;
+            }
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+select:focus,
+input:focus,
+button:focus {
+    outline: 0;
+}
+
+//------------------------
 //Media Query
 
-@media(max-width:1100px){
-    .nav-items{
-        display:none !important;
+@media(max-width:1100px) {
+    .nav-items {
+        display: none !important;
     }
 }
