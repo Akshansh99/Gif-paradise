@@ -11,7 +11,9 @@ const post = require("./models/post")
 //Basic configurations for views and mongoDB
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 // mongoose.connect('mongodb://localhost:27017/gif-paradise', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connect('mongodb+srv://Gif-paradise:gifparadise123@cluster0-2h4su.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -93,7 +95,9 @@ app.get("/", (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            res.render("landing", {post: postcreated });
+            res.render("landing", {
+                post: postcreated
+            });
         }
     });
 });
@@ -107,7 +111,9 @@ app.get("/register", isNotLoggedIn, (req, res) => {
 //Register page-POST route
 app.post("/register", (req, res) => {
     // Storing username to variable
-    const userInfo = new User({ username: req.body.username });
+    const userInfo = new User({
+        username: req.body.username
+    });
     //Required function to register new user
     User.register(userInfo, req.body.password, (err, user) => {
         if (err) {
@@ -122,6 +128,22 @@ app.post("/register", (req, res) => {
             res.redirect("/");
         });
     });
+});
+
+
+app.get("/posts/:id", (req, res) => {
+
+    post.findById(req.params.id, (err, foundPost) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(req.params.id);
+            res.render("gifs/show", {
+                post: foundPost
+            });
+        }
+    });
+    //console.log(req.params.id);
 });
 
 
