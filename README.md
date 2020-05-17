@@ -16,3 +16,4 @@ $ nodemon app.js
 ```
 ## Features
 * User Authetication
+* Add posts
