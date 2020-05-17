@@ -56,37 +56,6 @@ app.use((req, res, next) => {
 =======================
 */
 
-// Random posts added
-// var postOne = [{
-//     title: "ab",
-//     url: "https://thumbs.gfycat.com/SecondPeacefulKudu.webp"
-// }, {
-//     title: "sbs",
-//     url: "https://thumbs.gfycat.com/SpiritedOldfashionedInganue.webp"
-// }, {
-//     title: "es",
-//     url: "https://thumbs.gfycat.com/SecondVariableEnglishpointer.webp"
-// }, {
-//     title: "lt",
-//     url: "https://thumbs.gfycat.com/BaggyNewDanishswedishfarmdog.webp"
-// }, {
-//     title: "rd",
-//     url: "https://thumbs.gfycat.com/GoodUnacceptableHoneybee.webp"
-// }, {
-//     title: "s",
-//     url: "https://thumbs.gfycat.com/OrganicClumsyArcticfox.webp"
-// }];
-
-// postOne.forEach(Newpost => {
-//     post.create(Newpost, (err, postCreated) => {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log("Post created", postCreated);
-//         }
-//     });
-// })
-
 //Landing Page
 //Most of the routes redirect here
 app.get("/", (req, res) => {
@@ -102,7 +71,7 @@ app.get("/", (req, res) => {
 });
 
 
-
+//Finding gifs by their unique ids
 app.get("/posts/:id", (req, res) => {
 
     post.findById(req.params.id, (err, foundPost) => {
@@ -114,14 +83,16 @@ app.get("/posts/:id", (req, res) => {
             });
         }
     });
-    //console.log(req.params.id);
 });
 
-
+//Adding new posts
+//Get route
 app.get("/add", (req, res) => {
     res.render("./gifs/new");
 });
 
+//Adding new posts
+//Post route
 app.post("/add", (req, res) => {
     const postObject = {
         title: req.body.title,
