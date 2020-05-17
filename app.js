@@ -48,6 +48,8 @@ app.use((req, res, next) => {
     next();
 });
 
+
+
 /*
 =======================
         ROUTES
@@ -56,26 +58,26 @@ app.use((req, res, next) => {
 
 // Random posts added
 // var postOne = [{
-//     title:"ab",
-//     url:"https://thumbs.gfycat.com/ShockedPettyHyrax-mobile.mp4"
-// },{
-//     title:"sbs",
-//     url:"https://thumbs.gfycat.com/NeighboringSoftKangaroo-mobile.mp4"
-// },{
-//     title:"es",
-//     url:"https://thumbs.gfycat.com/LeafyTinyLeopard-mobile.mp4"
-// },{
-//     title:"lt",
-//     url:"https://thumbs.gfycat.com/MasculineLittleCicada-mobile.mp4"
-// },{
-//     title:"rd",
-//     url:"https://thumbs.gfycat.com/AcrobaticOffbeatHarborseal-mobile.mp4"
-// },{
-//     title:"s",
-//     url:"https://thumbs.gfycat.com/AltruisticCircularHoneybadger-mobile.mp4"
+//     title: "ab",
+//     url: "https://thumbs.gfycat.com/SecondPeacefulKudu.webp"
+// }, {
+//     title: "sbs",
+//     url: "https://thumbs.gfycat.com/SpiritedOldfashionedInganue.webp"
+// }, {
+//     title: "es",
+//     url: "https://thumbs.gfycat.com/SecondVariableEnglishpointer.webp"
+// }, {
+//     title: "lt",
+//     url: "https://thumbs.gfycat.com/BaggyNewDanishswedishfarmdog.webp"
+// }, {
+//     title: "rd",
+//     url: "https://thumbs.gfycat.com/GoodUnacceptableHoneybee.webp"
+// }, {
+//     title: "s",
+//     url: "https://thumbs.gfycat.com/OrganicClumsyArcticfox.webp"
 // }];
 
-// postOne.forEach(Newpost=>{
+// postOne.forEach(Newpost => {
 //     post.create(Newpost, (err, postCreated) => {
 //         if (err) {
 //             console.log(err);
@@ -84,9 +86,6 @@ app.use((req, res, next) => {
 //         }
 //     });
 // })
-
-
-
 
 //Landing Page
 //Most of the routes redirect here
@@ -98,6 +97,42 @@ app.get("/", (req, res) => {
             res.render("landing", {
                 post: postcreated
             });
+        }
+    });
+});
+
+
+
+app.get("/posts/:id", (req, res) => {
+
+    post.findById(req.params.id, (err, foundPost) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("gifs/show", {
+                post: foundPost
+            });
+        }
+    });
+    //console.log(req.params.id);
+});
+
+
+app.get("/add", (req, res) => {
+    res.render("./gifs/new");
+});
+
+app.post("/add", (req, res) => {
+    const postObject = {
+        title: req.body.title,
+        url: req.body.url
+    }
+    post.create(postObject, (err, postAdded) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(postAdded);
+            res.redirect("/");
         }
     });
 });
@@ -128,22 +163,6 @@ app.post("/register", (req, res) => {
             res.redirect("/");
         });
     });
-});
-
-
-app.get("/posts/:id", (req, res) => {
-
-    post.findById(req.params.id, (err, foundPost) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(req.params.id);
-            res.render("gifs/show", {
-                post: foundPost
-            });
-        }
-    });
-    //console.log(req.params.id);
 });
 
 

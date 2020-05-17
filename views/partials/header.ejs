@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/main.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="navbar">
         <div class="nav-logo"><a href="/">GIF-PARADISE</a></div>
         <div class="nav-items">
+            <li class="nav-item"><a href="/add">Upload</a></li>
             <li class="nav-item"><a href="#">Trending</a></li>
             <li class="nav-item"><a href="#">Hot</a></li>
             <li class="nav-item"><a href="#">All time Best</a></li>
-            <li class="nav-item"><a href="/register">Register</a></li>
-            <li class="nav-item"><a href="/login">Login</a></li>
+            <% if(!currentUser){ %>
+                <li class="nav-item"><a href="/register">Register</a></li>
+                <li class="nav-item"><a href="/login">Login</a></li>
+                <%} else{ %>
+                    <li class="nav-item">
+                        <a href="#">
+                            <%=currentUser.username%>
+                        </a>
+                    </li>
+                    <li class="nav-item"><a href="/logout">Logout</a></li>
+                    <%}%>
         </div>
     </div>
-
