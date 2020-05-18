@@ -10,7 +10,7 @@ const post = require("./models/post")
 
 //Basic configurations for views and mongoDB
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -29,6 +29,7 @@ mongoose.connect('mongodb+srv://Gif-paradise:gifparadise123@cluster0-2h4su.mongo
 //Dependencies used here:
 //passport, passport-local, passport-local-mongoose,
 //express-session
+app.use(express.static(__dirname + "/public"));
 app.use(require('express-session')({
     secret: "Best gif website in the world!",
     resave: false,
