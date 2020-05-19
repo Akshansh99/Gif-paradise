@@ -1,5 +1,52 @@
-<h1>show page for each gif</h1>
+<%- include("../partials/header") %>
+<div class="containerG">
+    <main>
+        <div class="gif">
+            <h1><%= post.title %></h1>
+            <image autoplay muted loop src="<%= post.url %>"></image>
 
-<h1><%= post.title %> </h1>
+            <div class="author">
+                <p>
+                    -by <strong><a href="">exel_erate</a> </strong>
+                </p>
+            </div>
+            <button class="prev">prev</button>
+            <button class="next">next</button>
+        </div>
+        <h1>Related</h1>
+        <div class="related-container">
+            <div class="related-column">
+                <video class="related-gif" autoplay muted loop
+                    src="https://thumbs.gfycat.com/ShockedPettyHyrax-mobile.mp4"></video>
+            </div>
+            <div class="related-column">
+                <video class="related-gif" autoplay muted loop
+                    src="https://thumbs.gfycat.com/ShockedPettyHyrax-mobile.mp4"></video>
+            </div>
 
-<p><%= post.url %> </p>
+            <div class="related-column">
+                <video class="related-gif" autoplay muted loop
+                    src="https://thumbs.gfycat.com/ShockedPettyHyrax-mobile.mp4"></video>
+            </div>
+        </div>
+    </main>
+    <aside>
+        <button>like 💜</button>
+        <p class="views">3,456,789 views</p>
+
+        <div class="share">
+            <h3>Share</h3>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-reddit"></a>
+            <a href="#" class="fa fa-instagram"></a>
+        </div>
+        <div class="link">
+            <h3>URL</h3>
+            <div class="url">
+                <div class="url-address"> https://thumbs.gfycat.com/ShockedPettyHyrax-mobile.mp4</div>
+            </div>
+        </div>
+    </aside>
+</div>
+<%- include("../partials/footer") %>
