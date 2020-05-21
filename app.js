@@ -164,6 +164,23 @@ app.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
+//Profile page for a user 
+app.get("/user/:username", (req, res) => {
+    User.findById(req.user._id, (err, foundUser) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("user/profile", {
+                user: foundUser
+            });
+            // console.log(foundUser);
+        }
+    });
+});
+
+
+
+
 
 //Middleware to check if the user is logged in
 //Can be used to check for authentication
