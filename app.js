@@ -53,7 +53,7 @@ app.use((req, res, next) => {
 
 /*
 =======================
-        ROUTES
+ROUTES
 =======================
 */
 
@@ -84,11 +84,12 @@ app.get("/posts/:id", (req, res) => {
             });
         }
     });
+
 });
 
 //Adding new posts
 //Get route
-app.get("/add", (req, res) => {
+app.get("/add", isLoggedIn, (req, res) => {
     res.render("./gifs/new");
 });
 
@@ -97,16 +98,31 @@ app.get("/add", (req, res) => {
 app.post("/add", (req, res) => {
     const postObject = {
         title: req.body.title,
-        url: req.body.url
+        url: req.body.url,
+        uploader: req.user.username,
+        uploaderID: req.user._id
     }
-    post.create(postObject, (err, postAdded) => {
+
+    User.findById(req.user._id, (err, user) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(postAdded);
-            res.redirect("/");
+            post.create(postObject, (err, postAdded) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    user.posts.push(postAdded);
+                    user.save((err, postLinked) => {
+                        if (err) console.log(err);
+                        else console.log(postLinked);
+                    });
+                    console.log(postAdded);
+                    res.redirect("/");
+                }
+            });
         }
     });
+
 });
 
 //Register page-GET route
@@ -142,6 +158,7 @@ app.post("/register", (req, res) => {
 //Refer comments below for isNotLoggedIn function
 app.get("/login", isNotLoggedIn, (req, res) => {
     res.render("login");
+
 });
 
 //Login(GET) page

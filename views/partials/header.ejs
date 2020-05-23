@@ -18,15 +18,15 @@
             <li class="nav-item"><a href="#">Hot</a></li>
             <li class="nav-item"><a href="#">All time Best</a></li>
             <% if(!currentUser){ %>
-            <li class="nav-item"><a href="/register">Register</a></li>
-            <li class="nav-item"><a href="/login">Login</a></li>
-            <%} else{ %>
-            <li class="nav-item">
-                <a href="#">
-                    <%=currentUser.username%>
-                </a>
-            </li>
-            <li class="nav-item"><a href="/logout">Logout</a></li>
-            <%}%>
+                <li class="nav-item"><a href="/register">Register</a></li>
+                <li class="nav-item"><a href="/login">Login</a></li>
+                <%} else{ %>
+                    <li class="nav-item">
+                        <a href="/user/<%=currentUser._id%>">
+                            <%=currentUser.username%>
+                        </a>
+                    </li>
+                    <li class="nav-item"><a href="/logout">Logout</a></li>
+                    <%}%>
         </div>
     </div>

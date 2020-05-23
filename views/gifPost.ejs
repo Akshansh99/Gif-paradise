@@ -1,15 +1,34 @@
-<%- include("../partials/header") %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/stylesheets/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-logo"><a href="/">GIF-PARADISE</a></div>
+        <div class="nav-items">
+            <li class="nav-item"><a href="#">Trending</a></li>
+            <li class="nav-item"><a href="#">Hot</a></li>
+            <li class="nav-item"><a href="#">All time Best</a></li>
+            <li class="nav-item"><a href="/register">Register</a></li>
+            <li class="nav-item"><a href="/login">Login</a></li>
+        </div>
+    </div>
     <div class="containerG">
         <main>
             <div class="gif">
-                <h1>
-                    <%= post.title %>
-                </h1>
-                <image autoplay muted loop src="<%= post.url %>"></image>
+                <h1>Thor Is Smart</h1>
+                <video autoplay muted loop src="https://thumbs.gfycat.com/ShockedPettyHyrax-mobile.mp4"></video>
 
                 <div class="author">
                     <p>
-                        -by <strong><a href="/user/<%=post.uploaderID%>"><%=post.uploader%></a> </strong>
+                        -by <strong><a href="user/<%=%>">exel_erate</a> </strong>
                     </p>
                 </div>
                 <button class="prev">prev</button>
@@ -48,4 +67,6 @@
             </div>
         </aside>
     </div>
-    <%- include("../partials/footer") %>
+</body>
+
+</html>
