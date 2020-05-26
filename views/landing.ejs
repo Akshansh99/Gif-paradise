@@ -2,21 +2,15 @@
 
     <div class="container">
         <div class="gif-container">
-            <div class="column">
-
-            </div>
-            <div class="column">
-
-            </div>
-            <div class="column">
-
-            </div>
+            <%post.forEach(newPost=>{%>
+                <a class="gif" href="/posts/<%=newPost._id%>"><img src="<%=newPost.url%>"></a>
+            <%});%>
         </div>
     </div>
 
 
 
-    <!-- SCRIPT FOR ADDING GIF IN GIF-CONTAINER  -->
+    <!-- SCRIPT FOR ADDING GIF IN GIF-CONTAINER 
     <script>
         var gifContainer = document.querySelector('.gif-container');
         // var columns = document.querySelectorAll('.column');
@@ -88,7 +82,7 @@
             }
 
         });
-    </script>
+    </script> -->
 
     <script src="js/landing.js"></script>
     <%- include("partials/footer") %>

@@ -26,7 +26,7 @@ html {
   .navbar .nav-items {
     display: flex;
     list-style: none;
-    max-width: 50rem;
+    max-width: 60rem;
     width: 45%;
     justify-content: space-between; }
     .navbar .nav-items .nav-item {
@@ -37,113 +37,112 @@ html {
 
 .container {
   width: 80%;
-  margin: auto; }
-  .container .gif-container {
-    display: flex; }
-    .container .gif-container .column {
-      width: 30%;
-      margin: 0 auto; }
-    .container .gif-container .gif {
-      margin: 2rem 0; }
-      .container .gif-container .gif img {
-        width: 100%;
-        border-radius: 1rem; }
-      .container .gif-container .gif:hover {
-        transform: scale(1.05);
-        cursor: pointer; }
-
-.containerG {
-  width: 80%;
   margin: auto;
   display: flex;
-  padding: 20px;
-  width: 80%; }
-  .containerG main {
-    width: 70%;
-    padding: 10px 20px;
-    border-right: 1px solid #171C26; }
-    .containerG main .gif h1 {
-      font-size: 3rem;
-      color: #171C26; }
-    .containerG main .gif .author {
-      text-align: right;
-      opacity: 0.8; }
-    .containerG main .gif img {
+  justify-content: center; }
+  .container .gif-container {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(30rem, 40rem));
+    grid-column-gap: 4%;
+    grid-row-gap: 3rem; }
+    .container .gif-container .gif {
       width: 100%; }
-    .containerG main .gif button {
-      width: 70px;
-      padding: 5px 10px; }
-      .containerG main .gif button.prev {
-        background-color: #ADAABF; }
-      .containerG main .gif button.next {
-        color: white;
-        background-color: #886FBF; }
-    .containerG main h1 {
-      margin-top: 3rem;
-      font-size: 2rem; }
-    .containerG main .related-container {
-      display: flex; }
-      .containerG main .related-container .related-column {
-        width: 30%; }
-      .containerG main .related-container .related-column:nth-of-type(1) {
-        margin-right: 5%; }
-      .containerG main .related-container .related-column:nth-of-type(2) {
-        margin-right: 5%; }
-      .containerG main .related-container .related-gif {
-        margin: 2rem 0;
+      .container .gif-container .gif img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.7rem; }
+
+.containerG {
+  min-width: 50rem;
+  max-width: 130rem;
+  width: 80%;
+  margin: auto;
+  padding: 2rem; }
+  .containerG .container-content {
+    display: flex;
+    justify-content: center; }
+    .containerG .container-content main {
+      max-width: 70rem;
+      width: 100%;
+      padding: 1rem 2rem;
+      border-right: 0.1rem solid #171C26; }
+      .containerG .container-content main .gif h1 {
+        font-size: 3rem;
+        color: #171C26; }
+      .containerG .container-content main .gif .author {
+        text-align: right;
+        opacity: 0.8; }
+      .containerG .container-content main .gif img {
         width: 100%; }
-        .containerG main .related-container .related-gif img {
-          width: 100%;
-          border-radius: 1rem; }
-        .containerG main .related-container .related-gif:hover {
-          transform: scale(1.05);
-          cursor: pointer; }
-  .containerG aside {
-    flex: 1;
-    margin-top: 30px;
-    padding: 10px 20px;
-    width: 30%; }
-    .containerG aside .share {
-      /* Add a hover effect if you want */
-      /* Set a specific color for each brand */
-      /* Facebook */
-      /* Twitter */ }
-      .containerG aside .share h3 {
-        margin-top: 30px; }
-      .containerG aside .share .fa {
-        padding: 20px;
-        font-size: 20px;
-        width: 60px;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 50%; }
-      .containerG aside .share .fa:hover {
-        opacity: 0.7; }
-      .containerG aside .share .fa-facebook {
-        background: #3B5998;
-        color: white; }
-      .containerG aside .share .fa-twitter {
-        background: #55ACEE;
-        color: white; }
-      .containerG aside .share .fa-reddit {
-        background: #ff5700;
-        color: white; }
-      .containerG aside .share .fa-instagram {
-        background: #125688;
-        color: white; }
-    .containerG aside button {
-      width: 70px;
-      border-radius: 10%;
-      text-shadow: #ADAABF;
-      box-shadow: #8E80BF; }
-    .containerG aside .views {
-      opacity: 0.6; }
-    .containerG aside .link {
-      margin-top: 30px;
-      display: inline-block; }
-      .containerG aside .link .url {
-        max-width: 100%;
-        background-color: white; }
+      .containerG .container-content main .gif button {
+        width: 70px;
+        padding: .5rem 1rem; }
+        .containerG .container-content main .gif button.prev {
+          background-color: #ADAABF; }
+        .containerG .container-content main .gif button.next {
+          color: white;
+          background-color: #886FBF; }
+      .containerG .container-content main h1 {
+        margin-top: 3rem;
+        font-size: 2rem; }
+    .containerG .container-content aside {
+      margin-top: 3rem;
+      padding: 1rem 2rem; }
+      .containerG .container-content aside .share h3 {
+        margin-top: 3rem; }
+      .containerG .container-content aside .share .share-button {
+        display: flex;
+        /* Add a hover effect if you want */
+        /* Set a specific color for each brand */
+        /* Facebook */
+        /* Twitter */ }
+        .containerG .container-content aside .share .share-button .fa {
+          padding: 2rem;
+          font-size: 2rem;
+          width: 6rem;
+          text-align: center;
+          text-decoration: none;
+          border-radius: 50%; }
+        .containerG .container-content aside .share .share-button .fa:hover {
+          opacity: 0.7; }
+        .containerG .container-content aside .share .share-button .fa-facebook {
+          background: #3B5998;
+          color: white; }
+        .containerG .container-content aside .share .share-button .fa-twitter {
+          background: #55ACEE;
+          color: white; }
+        .containerG .container-content aside .share .share-button .fa-reddit {
+          background: #ff5700;
+          color: white; }
+        .containerG .container-content aside .share .share-button .fa-instagram {
+          background: #125688;
+          color: white; }
+      .containerG .container-content aside button {
+        width: 70px;
+        border-radius: 10%;
+        text-shadow: #ADAABF;
+        box-shadow: #8E80BF; }
+      .containerG .container-content aside .views {
+        opacity: 0.6; }
+      .containerG .container-content aside .link {
+        margin-top: 3rem;
+        display: inline-block; }
+        .containerG .container-content aside .link .url {
+          max-width: 100%;
+          background-color: white; }
+  .containerG .related {
+    margin: 5rem auto;
+    padding: 1rem 2rem; }
+    .containerG .related .related-container {
+      display: grid;
+      grid-row-gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 2rem; }
+      .containerG .related .related-container .related-gif {
+        width: 100%; }
+        .containerG .related .related-container .related-gif img {
+          width: 100%; }
 
 select:focus,
 input:focus,
@@ -152,4 +151,18 @@ button:focus {
 
 @media (max-width: 1100px) {
   .nav-items {
-    display: none !important; } }
+    display: none !important; }
+  .gif-container {
+    grid-template-columns: repeat(2, minmax(30rem, 35rem)) !important; }
+  .container-content {
+    flex-direction: column; }
+  .related-container {
+    grid-template-columns: repeat(2, 1fr) !important; }
+  main {
+    border-right: none !important; } }
+
+@media (max-width: 700px) {
+  .gif-container {
+    grid-template-columns: minmax(30rem, 40rem) !important; }
+  .related-container {
+    grid-template-columns: 1fr !important; } }
