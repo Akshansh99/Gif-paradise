@@ -54,7 +54,6 @@ html {
         border-radius: 0.7rem; }
 
 .containerG {
-  min-width: 35rem;
   max-width: 130rem;
   width: 80%;
   margin: auto;
@@ -158,6 +157,8 @@ button:focus {
     flex-direction: column; }
   .related-container {
     grid-template-columns: repeat(2, 1fr) !important; }
+  .containerG {
+    width: 85% !important; }
   main {
     border-right: none !important; } }
 
@@ -165,4 +166,6 @@ button:focus {
   .gif-container {
     grid-template-columns: minmax(30rem, 40rem) !important; }
   .related-container {
-    grid-template-columns: 1fr !important; } }
+    grid-template-columns: 1fr !important; }
+  .containerG {
+    width: 100% !important; } }

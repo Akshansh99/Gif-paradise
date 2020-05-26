@@ -97,7 +97,7 @@ html {
 
 //sharma --------------
 .containerG {
-    min-width:35rem;
+    // min-width:45rem;
     max-width:130rem;
     width: 80%;
     margin: auto;
@@ -290,6 +290,10 @@ button:focus {
         grid-template-columns: repeat(2,1fr) !important;
     }
 
+    .containerG{
+        width: 85% !important;
+    }
+
     main{
         border-right:none !important;
     }
@@ -302,5 +306,8 @@ button:focus {
     }
     .related-container{
         grid-template-columns: 1fr !important;
+    }
+    .containerG{
+        width: 100% !important;
     }
 }
