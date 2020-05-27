@@ -6,7 +6,7 @@
                 <div class="gif hover-like">
                     <i class="far fa-heart hidden"></i>
                     <p class="tags">#awesome #cool</p>
-                    <a href="/posts/<%=newPost._id%>"><img class="gif-img" src="<%=newPost.url%>"></a>
+                    <a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img class="gif-img" src="<%=newPost.url%>"></a>
                 </div>
             <%});%>
         </div>

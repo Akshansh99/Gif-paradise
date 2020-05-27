@@ -219,7 +219,8 @@ button:focus {
   visibility: visible; }
 
 .hover-like:hover .gif-img {
-  border: 1px black solid; }
+  border: 1px black solid;
+  box-shadow: 1rem 1rem 0.5rem #ccc; }
 
 .fa-heart, .fa-edit {
   position: absolute;
