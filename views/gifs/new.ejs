@@ -1,11 +1,14 @@
 <%- include("../partials/header") %>
 
-    <h1>Add Post</h1>
+    <div class="new-container">
+        <h1>Add Your GIF</h1>
 
-    <form action="/add" method="POST">
-        <input type="text" name="title" placeholder="Title">
-        <input type="text" name="url" placeholder="Url">
-        <button>Submit</button>
-    </form>
+        <form action="/add" method="POST">
+            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="url" placeholder="Url">
+            <button>Submit</button>
+        </form>
+    </div>
+    
 
     <%- include("../partials/footer") %>

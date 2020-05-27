@@ -3,7 +3,11 @@
     <div class="container">
         <div class="gif-container">
             <%post.forEach(newPost=>{%>
-                <a class="gif" href="/posts/<%=newPost._id%>"><img src="<%=newPost.url%>"></a>
+                <div class="gif hover-like">
+                    <i class="far fa-heart hidden"></i>
+                    <p class="tags">#awesome #cool</p>
+                    <a href="/posts/<%=newPost._id%>"><img class="gif-img" src="<%=newPost.url%>"></a>
+                </div>
             <%});%>
         </div>
     </div>

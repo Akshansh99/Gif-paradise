@@ -1,6 +1,8 @@
 // google font - secular one
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
+// @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Monoton&display=swap');
 /* Color Theme Swatches in Hex */
 // $Graphic-Design-1-hex: #886FBF;
 // $Graphic-Design-2-hex: #8E80BF;
@@ -26,7 +28,9 @@ html {
 
 * {
     box-sizing: inherit;
-    font-family: 'Secular One', sans-serif;
+    // font-family: 'Secular One', sans-serif;
+    font-family: 'Chelsea Market', cursive;
+    // font-family: 'Monoton', cursive;
     margin: 0;
     padding: 0;
     font-size: 1.6rem;
@@ -52,24 +56,41 @@ html {
 
     .nav-items {
         display: flex;
+        align-items: center;
         list-style: none;
+        padding:0;
         max-width: 60rem;
-        width: 45%;
-        justify-content: space-between;
+        width: 50%;
+        justify-content: space-evenly;
 
         .nav-item {
-            margin: 1.5rem;
+            // margin: 1.5rem;
 
             a {
                 color: $color-gray;
                 text-decoration: none;
             }
+            
         }
 
+    }
+    .nav-user{
+        min-width: 12rem;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        img{
+            width:4rem;
+            height:4rem;
+            border-radius:50%;
+            
+        }
+        
     }
 }
 
 .container {
+    min-width:95rem;
     width: 80%;
     margin: auto;
     display:flex;
@@ -84,7 +105,9 @@ html {
         // grid-auto-columns: minmax(auto,50rem);
         grid-row-gap:3rem;
         .gif{
+            position: relative;
             width:100%;
+            // border-radius: 0.7rem;
             img{
                 width:100%;
                 height:100%;
@@ -94,8 +117,8 @@ html {
     }
 }
 
+// Styling for individual gif post...
 
-//sharma --------------
 .containerG {
     // min-width:45rem;
     max-width:130rem;
@@ -107,6 +130,7 @@ html {
     .container-content{
         display: flex;
         justify-content: center;
+        // align-items: center;
         main {
             max-width:70rem;
             width: 100%;
@@ -269,6 +293,133 @@ input:focus,
 button:focus {
     outline: 0;
 }
+//--------------------------
+
+// Styling for User page
+
+.u-container{
+    min-width:100rem;
+    width: 80%;
+    max-width:130rem;
+    margin:4rem auto;
+    display:flex;
+    flex-direction:column;
+    
+    .user{
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .user-info{
+            h1{
+                font-size: 2.5rem;
+            }
+        }
+
+        .user-photo{
+            img{
+                width:15rem;
+                height:15rem;
+                border-radius: 50%;
+            }
+
+        }
+    }
+    
+
+    .user-post{
+        
+        margin:5rem auto;
+        .u-gif-container{
+            margin:auto;
+            display:grid;
+            grid-template-columns: repeat(3,minmax(30rem,40rem));
+            grid-column-gap: 4%;
+            grid-row-gap:3rem;
+            .u-gif{
+                position: relative;
+                img{
+                    width:100%;
+                    height:100%;
+                    border-radius: 0.7rem;
+                }
+            }
+        }
+    }
+}
+
+//Styling for new post , Register, Login
+
+.new-container{
+    
+    width:80%;
+    margin:20rem auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        font-size:2rem;
+    }
+    form{
+        display:flex;
+        flex-direction: column;
+        input{
+            margin:0.5rem;
+            font-size:2rem;
+        }
+    }
+}
+
+//--------------------------
+// Hover like
+
+.hover-like{
+    &:hover{
+        transform: scale(1.05);
+        // border: 1px black solid;
+    }
+
+    &:hover .fa-heart{
+        visibility:visible;
+    }
+
+    &:hover .fa-edit{
+        visibility: visible;
+    }
+
+    &:hover .tags{
+        visibility: visible;
+    }
+
+    &:hover .gif-img{
+        border:1px black solid;
+    }
+}
+
+.fa-heart,.fa-edit{
+    position:absolute;
+    top:3rem;
+    right:3rem;
+    visibility:hidden;
+    // display:none;
+    transform: translate(50%,-50%);
+    color:white;
+    font-size:3rem;
+    z-index: 2;
+}
+
+
+
+.tags{
+    background: rgba(0,0,0,0.5);
+    position:absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    color:white;
+    visibility: hidden;
+    font-size:2rem;
+}
+
+
 
 //------------------------
 //Media Query
@@ -278,10 +429,13 @@ button:focus {
         display: none !important;
     }
 
-    .gif-container{
+    .gif-container, .u-gif-container{
         grid-template-columns: repeat(2,minmax(30rem,35rem)) !important;
     }
 
+    .u-container{
+        min-width: 65rem !important;
+    } 
     .container-content{
         flex-direction: column;
     }
@@ -294,6 +448,11 @@ button:focus {
         width: 85% !important;
     }
 
+    .container{
+        min-width: 65rem !important;
+    }
+    
+
     main{
         border-right:none !important;
     }
@@ -301,8 +460,12 @@ button:focus {
 
 
 @media(max-width:700px){
-    .gif-container{
+    .gif-container, .u-gif-container{
         grid-template-columns: minmax(30rem,40rem) !important;
+    }
+
+    .u-container{
+        min-width: 0 !important;
     }
     .related-container{
         grid-template-columns: 1fr !important;
@@ -310,4 +473,19 @@ button:focus {
     .containerG{
         width: 100% !important;
     }
+
+    .user{
+        flex-direction: column;
+        .user-info{
+            order:2;
+        }
+        .user-photo{
+            order: 1;
+        }
+    }
+
+    .container{
+        min-width: 0 !important;
+    }
+    
 }

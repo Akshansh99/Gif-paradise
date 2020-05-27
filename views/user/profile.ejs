@@ -1,8 +1,32 @@
-<h1>User Profile Page</h1>
-<h1>
-    <%= user.username %>
-</h1>
+<%-include('../partials/header.ejs')%>
 
-<% user.posts.forEach((post)=>{ %>
-    <a href="/posts/<%=post._id%>"><img src="<%=post.url%>"></a>
-    <%});%>
+<div class="u-container">
+    <div class="user">
+        <div class="user-info">
+            <h1 class="u-name">
+                <%= user.username %>
+            </h1>
+            <p class="u-email">akshanshrewariya@gmail.com</p>
+        </div>
+        <div class="user-photo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" alt="">
+        </div>
+    </div>
+    
+    <div class="user-post">
+        <div class="u-gif-container">
+            <% user.posts.forEach((post)=>{ %>
+            <div class="u-gif hover-like">
+                <!-- <i class="far fa-heart hidden"></i> -->
+                <i class="far fa-edit"></i>
+                <p class="tags">#awesome #cool</p>
+                <a href="/posts/<%=post._id%>"><img class="gif-img" src="<%=post.url%>"></a>
+            </div>
+            <%});%>
+        </div>
+    </div>
+    
+</div>
+
+
+<%-include('../partials/footer.ejs')%>

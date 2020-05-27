@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Monoton&display=swap");
 /* Color Theme Swatches in Hex */
 html {
   box-sizing: border-box;
@@ -7,7 +7,7 @@ html {
 
 * {
   box-sizing: inherit;
-  font-family: 'Secular One', sans-serif;
+  font-family: 'Chelsea Market', cursive;
   margin: 0;
   padding: 0;
   font-size: 1.6rem; }
@@ -25,17 +25,27 @@ html {
       text-decoration: none; }
   .navbar .nav-items {
     display: flex;
+    align-items: center;
     list-style: none;
+    padding: 0;
     max-width: 60rem;
-    width: 45%;
+    width: 50%;
+    justify-content: space-evenly; }
+    .navbar .nav-items .nav-item a {
+      color: #eee;
+      text-decoration: none; }
+  .navbar .nav-user {
+    min-width: 12rem;
+    display: flex;
+    align-items: center;
     justify-content: space-between; }
-    .navbar .nav-items .nav-item {
-      margin: 1.5rem; }
-      .navbar .nav-items .nav-item a {
-        color: #eee;
-        text-decoration: none; }
+    .navbar .nav-user img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%; }
 
 .container {
+  min-width: 95rem;
   width: 80%;
   margin: auto;
   display: flex;
@@ -47,6 +57,7 @@ html {
     grid-column-gap: 4%;
     grid-row-gap: 3rem; }
     .container .gif-container .gif {
+      position: relative;
       width: 100%; }
       .container .gif-container .gif img {
         width: 100%;
@@ -148,24 +159,119 @@ input:focus,
 button:focus {
   outline: 0; }
 
+.u-container {
+  min-width: 100rem;
+  width: 80%;
+  max-width: 130rem;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column; }
+  .u-container .user {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; }
+    .u-container .user .user-info h1 {
+      font-size: 2.5rem; }
+    .u-container .user .user-photo img {
+      width: 15rem;
+      height: 15rem;
+      border-radius: 50%; }
+  .u-container .user-post {
+    margin: 5rem auto; }
+    .u-container .user-post .u-gif-container {
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(30rem, 40rem));
+      grid-column-gap: 4%;
+      grid-row-gap: 3rem; }
+      .u-container .user-post .u-gif-container .u-gif {
+        position: relative; }
+        .u-container .user-post .u-gif-container .u-gif img {
+          width: 100%;
+          height: 100%;
+          border-radius: 0.7rem; }
+
+.new-container {
+  width: 80%;
+  margin: 20rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .new-container h1 {
+    font-size: 2rem; }
+  .new-container form {
+    display: flex;
+    flex-direction: column; }
+    .new-container form input {
+      margin: 0.5rem;
+      font-size: 2rem; }
+
+.hover-like:hover {
+  transform: scale(1.05); }
+
+.hover-like:hover .fa-heart {
+  visibility: visible; }
+
+.hover-like:hover .fa-edit {
+  visibility: visible; }
+
+.hover-like:hover .tags {
+  visibility: visible; }
+
+.hover-like:hover .gif-img {
+  border: 1px black solid; }
+
+.fa-heart, .fa-edit {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  visibility: hidden;
+  transform: translate(50%, -50%);
+  color: white;
+  font-size: 3rem;
+  z-index: 2; }
+
+.tags {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: white;
+  visibility: hidden;
+  font-size: 2rem; }
+
 @media (max-width: 1100px) {
   .nav-items {
     display: none !important; }
-  .gif-container {
+  .gif-container, .u-gif-container {
     grid-template-columns: repeat(2, minmax(30rem, 35rem)) !important; }
+  .u-container {
+    min-width: 65rem !important; }
   .container-content {
     flex-direction: column; }
   .related-container {
     grid-template-columns: repeat(2, 1fr) !important; }
   .containerG {
     width: 85% !important; }
+  .container {
+    min-width: 65rem !important; }
   main {
     border-right: none !important; } }
 
 @media (max-width: 700px) {
-  .gif-container {
+  .gif-container, .u-gif-container {
     grid-template-columns: minmax(30rem, 40rem) !important; }
+  .u-container {
+    min-width: 0 !important; }
   .related-container {
     grid-template-columns: 1fr !important; }
   .containerG {
-    width: 100% !important; } }
+    width: 100% !important; }
+  .user {
+    flex-direction: column; }
+    .user .user-info {
+      order: 2; }
+    .user .user-photo {
+      order: 1; }
+  .container {
+    min-width: 0 !important; } }
