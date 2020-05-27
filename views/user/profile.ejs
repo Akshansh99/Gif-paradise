@@ -1,5 +1,6 @@
 <%-include('../partials/header.ejs')%>
 
+<<<<<<< HEAD
 <div class="u-container">
     <div class="user">
         <div class="user-info">
@@ -30,3 +31,8 @@
 
 
 <%-include('../partials/footer.ejs')%>
+=======
+<% user.posts.forEach((post)=>{ %>
+    <a href="/posts/<%=post._id%>/<%=post.title.replace(/\s+/g, '-').toLowerCase()%>"><img src="<%=post.url%>"></a>
+    <%});%>
+>>>>>>> 1cdc10df2bf704a4a61de6be43817aa24c4a2188
