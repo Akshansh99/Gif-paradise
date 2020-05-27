@@ -4,5 +4,5 @@
 </h1>
 
 <% user.posts.forEach((post)=>{ %>
-    <a href="/posts/<%=post._id%>"><img src="<%=post.url%>"></a>
+    <a href="/posts/<%=post._id%>/<%=post.title.replace(/\s+/g, '-').toLowerCase()%>"><img src="<%=post.url%>"></a>
     <%});%>

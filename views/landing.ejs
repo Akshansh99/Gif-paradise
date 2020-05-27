@@ -55,7 +55,7 @@
             var n = columns.length;
             var div = document.createElement('div');
             div.classList.add('gif');
-            div.innerHTML = `<a href="/posts/<%=newPost._id%>"><img src="<%=newPost.url%>"> </a>`;
+            div.innerHTML = `<a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img src="<%=newPost.url%>"> </a>`;
             columns[currentColumnIndex].appendChild(div);
             if (currentColumnIndex == n - 1) {
                 currentColumnIndex = 0;

@@ -22,7 +22,7 @@
                 <li class="nav-item"><a href="/login">Login</a></li>
                 <%} else{ %>
                     <li class="nav-item">
-                        <a href="/user/<%=currentUser._id%>">
+                        <a href="/user/<%=currentUser._id%>/<%=currentUser.username%>">
                             <%=currentUser.username%>
                         </a>
                     </li>

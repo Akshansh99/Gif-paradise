@@ -1,155 +1,249 @@
-@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap"); */
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;600;700&family=Yantramanav:wght@400;500;700&display=swap');
+
 /* Color Theme Swatches in Hex */
+
 html {
-  box-sizing: border-box;
-  font-size: 10px;
-  background: #eee; }
+    box-sizing: border-box;
+    font-size: 10px;
+    background: #eee;
+}
 
 * {
-  box-sizing: inherit;
-  font-family: 'Secular One', sans-serif;
-  margin: 0;
-  padding: 0;
-  font-size: 1.6rem; }
+    box-sizing: inherit;
+    /* font-family: 'Secular One', sans-serif; */
+    /* font-family: 'Signika', sans-serif; */
+    font-family: 'Yantramanav', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-image: linear-gradient(to bottom right, #574BA6, #8E80BF); }
-  .navbar .nav-logo {
-    margin: 1rem; }
-    .navbar .nav-logo a {
-      font-size: 2rem;
-      color: #eee;
-      text-decoration: none; }
-  .navbar .nav-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, #574BA6, #8E80BF);
+}
+
+.navbar .nav-logo {
+    margin: 1rem;
+}
+
+.navbar .nav-logo a {
+    font-size: 2rem;
+    color: #eee;
+    text-decoration: none;
+}
+
+.navbar .nav-items {
     display: flex;
     list-style: none;
     max-width: 50rem;
     width: 45%;
-    justify-content: space-between; }
-    .navbar .nav-items .nav-item {
-      margin: 1.5rem; }
-      .navbar .nav-items .nav-item a {
-        color: #eee;
-        text-decoration: none; }
+    justify-content: space-between;
+}
+
+.navbar .nav-items .nav-item {
+    margin: 1.5rem;
+}
+
+.navbar .nav-items .nav-item a {
+    color: #eee;
+    text-decoration: none;
+}
 
 .container {
-  width: 80%;
-  margin: auto; }
-  .container .gif-container {
-    display: flex; }
-    .container .gif-container .column {
-      width: 30%;
-      margin: 0 auto; }
-    .container .gif-container .gif {
-      margin: 2rem 0; }
-      .container .gif-container .gif img {
-        width: 100%;
-        border-radius: 1rem; }
-      .container .gif-container .gif:hover {
-        transform: scale(1.05);
-        cursor: pointer; }
+    width: 80%;
+    margin: auto;
+}
+
+.container .gif-container {
+    display: flex;
+}
+
+.container .gif-container .column {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.container .gif-container .gif {
+    margin: 2rem 0;
+}
+
+.container .gif-container .gif img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.container .gif-container .gif:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
 
 .containerG {
-  width: 80%;
-  margin: auto;
-  display: flex;
-  padding: 20px;
-  width: 80%; }
-  .containerG main {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    padding: 20px;
+    width: 80%;
+}
+
+.containerG main {
     width: 70%;
     padding: 10px 20px;
-    border-right: 1px solid #171C26; }
-    .containerG main .gif h1 {
-      font-size: 3rem;
-      color: #171C26; }
-    .containerG main .gif .author {
-      text-align: right;
-      opacity: 0.8; }
-    .containerG main .gif img {
-      width: 100%; }
-    .containerG main .gif button {
-      width: 70px;
-      padding: 5px 10px; }
-      .containerG main .gif button.prev {
-        background-color: #ADAABF; }
-      .containerG main .gif button.next {
-        color: white;
-        background-color: #886FBF; }
-    .containerG main h1 {
-      margin-top: 3rem;
-      font-size: 2rem; }
-    .containerG main .related-container {
-      display: flex; }
-      .containerG main .related-container .related-column {
-        width: 30%; }
-      .containerG main .related-container .related-column:nth-of-type(1) {
-        margin-right: 5%; }
-      .containerG main .related-container .related-column:nth-of-type(2) {
-        margin-right: 5%; }
-      .containerG main .related-container .related-gif {
-        margin: 2rem 0;
-        width: 100%; }
-        .containerG main .related-container .related-gif img {
-          width: 100%;
-          border-radius: 1rem; }
-        .containerG main .related-container .related-gif:hover {
-          transform: scale(1.05);
-          cursor: pointer; }
-  .containerG aside {
+    border-right: 1px solid #171C26;
+}
+
+.containerG main .gif h1 {
+    font-size: 3rem;
+    color: #171C26;
+}
+
+.containerG main .gif .author {
+    text-align: right;
+    opacity: 0.8;
+}
+
+.containerG main .gif img {
+    width: 100%;
+}
+
+.containerG main .gif button {
+    width: 70px;
+    padding: 5px 10px;
+}
+
+.containerG main .gif button.prev {
+    background-color: #ADAABF;
+}
+
+.containerG main .gif button.next {
+    color: white;
+    background-color: #886FBF;
+}
+
+.containerG main h1 {
+    margin-top: 3rem;
+    font-size: 2rem;
+}
+
+.containerG main .related-container {
+    display: flex;
+}
+
+.containerG main .related-container .related-column {
+    width: 30%;
+}
+
+.containerG main .related-container .related-column:nth-of-type(1) {
+    margin-right: 5%;
+}
+
+.containerG main .related-container .related-column:nth-of-type(2) {
+    margin-right: 5%;
+}
+
+.containerG main .related-container .related-gif {
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.containerG main .related-container .related-gif img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.containerG main .related-container .related-gif:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.containerG aside {
     flex: 1;
     margin-top: 30px;
     padding: 10px 20px;
-    width: 30%; }
-    .containerG aside .share {
-      /* Add a hover effect if you want */
-      /* Set a specific color for each brand */
-      /* Facebook */
-      /* Twitter */ }
-      .containerG aside .share h3 {
-        margin-top: 30px; }
-      .containerG aside .share .fa {
-        padding: 20px;
-        font-size: 20px;
-        width: 60px;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 50%; }
-      .containerG aside .share .fa:hover {
-        opacity: 0.7; }
-      .containerG aside .share .fa-facebook {
-        background: #3B5998;
-        color: white; }
-      .containerG aside .share .fa-twitter {
-        background: #55ACEE;
-        color: white; }
-      .containerG aside .share .fa-reddit {
-        background: #ff5700;
-        color: white; }
-      .containerG aside .share .fa-instagram {
-        background: #125688;
-        color: white; }
-    .containerG aside button {
-      width: 70px;
-      border-radius: 10%;
-      text-shadow: #ADAABF;
-      box-shadow: #8E80BF; }
-    .containerG aside .views {
-      opacity: 0.6; }
-    .containerG aside .link {
-      margin-top: 30px;
-      display: inline-block; }
-      .containerG aside .link .url {
-        max-width: 100%;
-        background-color: white; }
+    width: 30%;
+}
+
+.containerG aside .share {
+    /* Add a hover effect if you want */
+    /* Set a specific color for each brand */
+    /* Facebook */
+    /* Twitter */
+}
+
+.containerG aside .share h3 {
+    margin-top: 30px;
+}
+
+.containerG aside .share .fa {
+    padding: 20px;
+    font-size: 20px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.containerG aside .share .fa:hover {
+    opacity: 0.7;
+}
+
+.containerG aside .share .fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.containerG aside .share .fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.containerG aside .share .fa-reddit {
+    background: #ff5700;
+    color: white;
+}
+
+.containerG aside .share .fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.containerG aside button {
+    width: 70px;
+    border-radius: 10%;
+    text-shadow: #ADAABF;
+    box-shadow: #8E80BF;
+}
+
+.containerG aside .views {
+    opacity: 0.6;
+}
+
+.containerG aside .link {
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.containerG aside .link .url {
+    max-width: 100%;
+    background-color: white;
+}
 
 select:focus,
 input:focus,
 button:focus {
-  outline: 0; }
+    outline: 0;
+}
 
 @media (max-width: 1100px) {
-  .nav-items {
-    display: none !important; } }
+    .nav-items {
+        display: none !important;
+    }
+}

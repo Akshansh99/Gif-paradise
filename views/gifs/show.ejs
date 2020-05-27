@@ -9,7 +9,7 @@
 
                 <div class="author">
                     <p>
-                        -by <strong><a href="/user/<%=post.uploaderID%>"><%=post.uploader%></a> </strong>
+                        -by <strong><a href="/user/<%=post.uploaderID%>/<%=post.uploader%>"><%=post.uploader%></a> </strong>
                     </p>
                 </div>
                 <button class="prev">prev</button>
@@ -43,7 +43,9 @@
             <div class="link">
                 <h3>URL</h3>
                 <div class="url">
-                    <div class="url-address"> https://thumbs.gfycat.com/ShockedPettyHyrax-mobile.mp4</div>
+                    <div class="url-address">
+                        <%=post.url%>
+                    </div>
                 </div>
             </div>
         </aside>

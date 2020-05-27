@@ -59,31 +59,53 @@ ROUTES
 
 //Landing Page
 //Most of the routes redirect here
-app.get("/", (req, res) => {
-    post.find({}, (err, postcreated) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.render("landing", {
-                post: postcreated
-            });
-        }
-    });
+app.get("/", async(req, res) => {
+    // post.find({}, (err, postcreated) => {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         res.render("landing", {
+    //             post: postcreated
+    //         });
+    //     }
+    // });
+
+    try {
+        const postFound = await post.find({});
+        res.render("landing", {
+            post: postFound
+        });
+
+    } catch (err) {
+        console.log(err);
+    }
+
+
 });
 
 
 //Finding gifs by their unique ids
-app.get("/posts/:id", (req, res) => {
+app.get("/posts/:id/:title", async(req, res) => {
 
-    post.findById(req.params.id, (err, foundPost) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.render("gifs/show", {
-                post: foundPost
-            });
-        }
-    });
+    // post.findById(req.params.id, (err, foundPost) => {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         res.render("gifs/show", {
+    //             post: foundPost
+    //         });
+    //     }
+    // });
+
+
+    try {
+        const foundPost = await post.findById(req.params.id);
+        res.render("gifs/show", {
+            post: foundPost
+        })
+    } catch (err) {
+        console.log(err);
+    }
 
 });
 
@@ -95,7 +117,7 @@ app.get("/add", isLoggedIn, (req, res) => {
 
 //Adding new posts
 //Post route
-app.post("/add", (req, res) => {
+app.post("/add", async(req, res) => {
     const postObject = {
         title: req.body.title,
         url: req.body.url,
@@ -103,27 +125,72 @@ app.post("/add", (req, res) => {
         uploaderID: req.user._id
     }
 
-    User.findById(req.user._id, (err, user) => {
-        if (err) {
-            console.log(err);
-        } else {
-            post.create(postObject, (err, postAdded) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    user.posts.push(postAdded);
-                    user.save((err, postLinked) => {
-                        if (err) console.log(err);
-                        else console.log(postLinked);
-                    });
-                    console.log(postAdded);
-                    res.redirect("/");
-                }
-            });
-        }
-    });
+
+    //================================
+    //ASYNC AWAIT (Best)
+    //===============================
+    try {
+        const userLogged = await User.findById(req.user._id);
+        const postcreate = await post.create(postObject);
+        const postMade = await userLogged.posts.push(postcreate);
+        const postLinked = await userLogged.save();
+        console.log(postLinked);
+        res.redirect("/");
+    } catch (err) {
+        console.log(err);
+    }
+
+    //=============================
+    //PROMISES (Better)
+    //============================
+    // const id = req.user._id;
+    // User.findById(req.user._id)
+    //     .then(user => {
+    //         post.create(postObject).
+    //         then(postAdded => {
+    //                 user.posts.push(postAdded);
+    //                 console.log(postAdded);
+    //                 user.save();
+    //             })
+    //             .catch(err1 => {
+    //                 console.log(err1);
+    //             })
+    //     })
+    //     .then(postLinked => {
+    //         console.log(postLinked);
+    //         res.redirect("/");
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     })
+
 
 });
+
+//===========================
+//CALLBACKS(Worst)
+//===========================
+
+// User.findById(req.user._id, (err, user) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         post.create(postObject, (err, postAdded) => {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 user.posts.push(postAdded);
+//                 user.save((err, postLinked) => {
+//                     if (err) console.log(err);
+//                     else console.log(postLinked);
+//                 });
+//                 console.log(postAdded);
+//                 res.redirect("/");
+//             }
+//         });
+//     }
+// });
+
 
 //Register page-GET route
 //Refer comments below for isNotLoggedIn function
@@ -132,25 +199,34 @@ app.get("/register", isNotLoggedIn, (req, res) => {
 });
 
 //Register page-POST route
-app.post("/register", (req, res) => {
+app.post("/register", async(req, res) => {
     // Storing username to variable
     const userInfo = new User({
         username: req.body.username
     });
     //Required function to register new user
-    User.register(userInfo, req.body.password, (err, user) => {
-        if (err) {
-            //If error occurs err message is printed to console
-            //and redirected back to register(GET) route
-            console.log(err);
-            res.redirect("/register");
-        }
-        //On successful registeration, we are redirected to
-        // "/" route
-        passport.authenticate("local")(req, res, () => {
-            res.redirect("/");
-        });
-    });
+    // User.register(userInfo, req.body.password, (err, user) => {
+    //     if (err) {
+    //         //If error occurs err message is printed to console
+    //         //and redirected back to register(GET) route
+    //         console.log(err);
+    //         res.redirect("/register");
+    //     }
+    //     //On successful registeration, we are redirected to
+    //     // "/" route
+    //     passport.authenticate("local")(req, res, () => {
+    //         res.redirect("/");
+    //     });
+    // });
+
+    try {
+        const userRegister = await User.register(userInfo, req.body.password);
+        const authSuccess = await passport.authenticate("local");
+        res.redirect("/");
+    } catch (err) {
+        res.redirect("/register");
+        console.log(err);
+    }
 });
 
 
@@ -182,17 +258,28 @@ app.get("/logout", (req, res) => {
 });
 
 //Profile page for a user 
-app.get("/user/:username", (req, res) => {
-    User.findById(req.user._id, (err, foundUser) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.render("user/profile", {
-                user: foundUser
-            });
-            // console.log(foundUser);
-        }
-    });
+app.get("/user/:userID/:username", async(req, res) => {
+    // User.findById(req.params.userID, (err, foundUser) => {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         res.render("user/profile", {
+    //             user: foundUser
+    //         });
+    //         // console.log(foundUser);
+    //     }
+    // });
+
+    try {
+        const foundUser = await User.findById(req.params.userID);
+        res.render("user/profile", {
+            user: foundUser
+        });
+        console.log(foundUser);
+    } catch (err) {
+        console.log(err);
+    }
+
 });
 
 
