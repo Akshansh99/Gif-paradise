@@ -1,6 +1,5 @@
 <%-include('../partials/header.ejs')%>
 
-<<<<<<< HEAD
 <div class="u-container">
     <div class="user">
         <div class="user-info">
@@ -21,7 +20,7 @@
                 <!-- <i class="far fa-heart hidden"></i> -->
                 <i class="far fa-edit"></i>
                 <p class="tags">#awesome #cool</p>
-                <a href="/posts/<%=post._id%>"><img class="gif-img" src="<%=post.url%>"></a>
+                <a href="/posts/<%=post._id%>/<%=post.title.replace(/\s+/g, '-').toLowerCase()%>"><img class="gif-img" src="<%=post.url%>"></a>
             </div>
             <%});%>
         </div>
@@ -31,8 +30,3 @@
 
 
 <%-include('../partials/footer.ejs')%>
-=======
-<% user.posts.forEach((post)=>{ %>
-    <a href="/posts/<%=post._id%>/<%=post.title.replace(/\s+/g, '-').toLowerCase()%>"><img src="<%=post.url%>"></a>
-    <%});%>
->>>>>>> 1cdc10df2bf704a4a61de6be43817aa24c4a2188
