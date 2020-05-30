@@ -1,11 +1,13 @@
 <%- include("partials/header") %>
-
-    <h1>REGISTER!</h1>
+    <div class="new-container">
+        <h1>REGISTER!</h1>
     <!-- Simple register form -->
-    <form action="/register" method="POST">
-        <input type="text" name="username" placeholder="username">
-        <input type="password" name="password" placeholder="password">
-        <button>Submit</button>
-    </form>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="Submit" name="register">
+        </form>
+    </div>
+    
 
     <%- include("partials/footer") %>

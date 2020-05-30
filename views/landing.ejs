@@ -2,21 +2,19 @@
 
     <div class="container">
         <div class="gif-container">
-            <div class="column">
-
-            </div>
-            <div class="column">
-
-            </div>
-            <div class="column">
-
-            </div>
+            <%post.forEach(newPost=>{%>
+                <div class="gif hover-like">
+                    <i class="far fa-heart hidden"></i>
+                    <p class="tags">#awesome #cool</p>
+                    <a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img class="gif-img" src="<%=newPost.url%>"></a>
+                </div>
+            <%});%>
         </div>
     </div>
 
 
 
-    <!-- SCRIPT FOR ADDING GIF IN GIF-CONTAINER  -->
+    <!-- SCRIPT FOR ADDING GIF IN GIF-CONTAINER 
     <script>
         var gifContainer = document.querySelector('.gif-container');
         // var columns = document.querySelectorAll('.column');
@@ -55,7 +53,7 @@
             var n = columns.length;
             var div = document.createElement('div');
             div.classList.add('gif');
-            div.innerHTML = `<a href="/posts/<%=newPost._id%>"><img src="<%=newPost.url%>"> </a>`;
+            div.innerHTML = `<a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img src="<%=newPost.url%>"> </a>`;
             columns[currentColumnIndex].appendChild(div);
             if (currentColumnIndex == n - 1) {
                 currentColumnIndex = 0;
@@ -88,7 +86,7 @@
             }
 
         });
-    </script>
+    </script> -->
 
     <script src="js/landing.js"></script>
     <%- include("partials/footer") %>
