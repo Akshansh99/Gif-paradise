@@ -1,20 +1,26 @@
 <%- include("partials/header") %>
 
-    <div class="container">
-        <div class="gif-container">
-            <%post.forEach(newPost=>{%>
-                <div class="gif hover-like">
-                    <i class="far fa-heart hidden"></i>
-                    <p class="tags">#awesome #cool</p>
-                    <a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img class="gif-img" src="<%=newPost.url%>"></a>
-                </div>
-            <%});%>
+<form action="/categories" method="POST">
+    <input type="submit" name="category" value="horror" id="horror">
+    <input type="submit" name="category" value="sports" id="sports">
+    <input type="submit" name="category" value="reaction" id="reaction">
+</form>
+<div class="container">
+    <div class="gif-container">
+        <%post.forEach(newPost=>{%>
+        <div class="gif hover-like">
+            <i class="far fa-heart hidden"></i>
+            <p class="tags">#awesome #cool</p>
+            <a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img class="gif-img"
+                    src="<%=newPost.url%>"></a>
         </div>
+        <%});%>
     </div>
+</div>
 
 
 
-    <!-- SCRIPT FOR ADDING GIF IN GIF-CONTAINER 
+<!-- SCRIPT FOR ADDING GIF IN GIF-CONTAINER 
     <script>
         var gifContainer = document.querySelector('.gif-container');
         // var columns = document.querySelectorAll('.column');
@@ -88,5 +94,5 @@
         });
     </script> -->
 
-    <script src="js/landing.js"></script>
-    <%- include("partials/footer") %>
+<script src="js/landing.js"></script>
+<%- include("partials/footer") %>

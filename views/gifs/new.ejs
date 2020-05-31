@@ -1,14 +1,21 @@
 <%- include("../partials/header") %>
 
-    <div class="new-container">
-        <h1>Add Your GIF</h1>
+<div class="new-container">
+    <h1>Add Your GIF</h1>
 
-        <form action="/add" method="POST">
-            <input type="text" name="title" placeholder="Title">
-            <input type="text" name="url" placeholder="Url">
-            <button>Submit</button>
-        </form>
-    </div>
-    
+    <form action="/add" method="POST">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="url" placeholder="Url">
+        <label>category</label>
+        <select name="category" id="categories">
+            <option value="funny">funny</option>
+            <option value="horror">horror</option>
+            <option value="sports">sports</option>
+            <option value="reaction">reaction</option>
+        </select>
+        <button>Submit</button>
+    </form>
+</div>
 
-    <%- include("../partials/footer") %>
+
+<%- include("../partials/footer") %>
