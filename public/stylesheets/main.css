@@ -7,7 +7,7 @@ html {
 
 * {
   box-sizing: inherit;
-  font-family: 'Chelsea Market', cursive;
+  font-family: "Chelsea Market", cursive;
   margin: 0;
   padding: 0;
   font-size: 1.6rem; }
@@ -16,7 +16,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(to bottom right, #574BA6, #8E80BF); }
+  background-image: linear-gradient(to bottom right, #574ba6, #8e80bf); }
   .navbar .nav-logo {
     margin: 1rem; }
     .navbar .nav-logo a {
@@ -74,12 +74,12 @@ html {
     justify-content: center; }
     .containerG .container-content main {
       max-width: 70rem;
-      width: 100%;
+      width: 70%;
       padding: 1rem 2rem;
-      border-right: 0.1rem solid #171C26; }
+      border-right: 0.1rem solid #171c26; }
       .containerG .container-content main .gif h1 {
         font-size: 3rem;
-        color: #171C26; }
+        color: #171c26; }
       .containerG .container-content main .gif .author {
         text-align: right;
         opacity: 0.8; }
@@ -87,18 +87,19 @@ html {
         width: 100%; }
       .containerG .container-content main .gif button {
         width: 70px;
-        padding: .5rem 1rem; }
+        padding: 0.5rem 1rem; }
         .containerG .container-content main .gif button.prev {
-          background-color: #ADAABF; }
+          background-color: #adaabf; }
         .containerG .container-content main .gif button.next {
           color: white;
-          background-color: #886FBF; }
+          background-color: #886fbf; }
       .containerG .container-content main h1 {
         margin-top: 3rem;
         font-size: 2rem; }
     .containerG .container-content aside {
       margin-top: 3rem;
-      padding: 1rem 2rem; }
+      padding: 1rem 2rem;
+      width: 30%; }
       .containerG .container-content aside .share h3 {
         margin-top: 3rem; }
       .containerG .container-content aside .share .share-button {
@@ -117,10 +118,10 @@ html {
         .containerG .container-content aside .share .share-button .fa:hover {
           opacity: 0.7; }
         .containerG .container-content aside .share .share-button .fa-facebook {
-          background: #3B5998;
+          background: #3b5998;
           color: white; }
         .containerG .container-content aside .share .share-button .fa-twitter {
-          background: #55ACEE;
+          background: #55acee;
           color: white; }
         .containerG .container-content aside .share .share-button .fa-reddit {
           background: #ff5700;
@@ -131,8 +132,8 @@ html {
       .containerG .container-content aside button {
         width: 70px;
         border-radius: 10%;
-        text-shadow: #ADAABF;
-        box-shadow: #8E80BF; }
+        text-shadow: #adaabf;
+        box-shadow: #8e80bf; }
       .containerG .container-content aside .views {
         opacity: 0.6; }
       .containerG .container-content aside .link {
@@ -141,18 +142,28 @@ html {
         .containerG .container-content aside .link .url {
           max-width: 100%;
           background-color: white; }
-  .containerG .related {
-    margin: 5rem auto;
-    padding: 1rem 2rem; }
-    .containerG .related .related-container {
-      display: grid;
-      grid-row-gap: 2rem;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 2rem; }
-      .containerG .related .related-container .related-gif {
-        width: 100%; }
-        .containerG .related .related-container .related-gif img {
+  .containerG .container_below {
+    display: flex;
+    justify-content: center; }
+    .containerG .container_below main {
+      max-width: 70rem;
+      width: 70%;
+      padding: 1rem 2rem;
+      border-right: 0.1rem solid #171c26;
+      padding: 1rem 2rem; }
+      .containerG .container_below main .related-container {
+        display: grid;
+        grid-row-gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 2rem; }
+        .containerG .container_below main .related-container .related-gif {
           width: 100%; }
+          .containerG .container_below main .related-container .related-gif img {
+            width: 100%; }
+    .containerG .container_below aside {
+      margin-top: 3rem;
+      padding: 1rem 2rem;
+      width: 30%; }
 
 select:focus,
 input:focus,
@@ -206,13 +217,25 @@ button:focus {
       margin: 0.5rem;
       font-size: 2rem; }
 
+.hover-like .heart {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 35px;
+  top: 35px;
+  background: url(https://cssanimation.rocks/images/posts/steps/heart.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  animation: fave-heart 1s steps(28); }
+
+.hover-like .is_active {
+  background-position: -2800px 0;
+  transition: background 1s steps(28); }
+
 .hover-like:hover {
   transform: scale(1.05); }
 
-.hover-like:hover .fa-heart {
-  visibility: visible; }
-
-.hover-like:hover .fa-edit {
+.hover-like:hover .heart {
   visibility: visible; }
 
 .hover-like:hover .tags {
@@ -222,7 +245,7 @@ button:focus {
   border: 1px black solid;
   box-shadow: 1rem 1rem 0.5rem #ccc; }
 
-.fa-heart, .fa-edit {
+.heart {
   position: absolute;
   top: 3rem;
   right: 3rem;
@@ -241,26 +264,41 @@ button:focus {
   visibility: hidden;
   font-size: 2rem; }
 
+@media (max-width: 1350px) {
+  .related-container {
+    grid-template-columns: repeat(2, 1fr) !important; } }
+
+@media (max-width: 1250px) {
+  main {
+    width: 65% !important; }
+  aside {
+    width: 35% !important; } }
+
 @media (max-width: 1100px) {
   .nav-items {
     display: none !important; }
-  .gif-container, .u-gif-container {
+  .gif-container,
+  .u-gif-container {
     grid-template-columns: repeat(2, minmax(30rem, 35rem)) !important; }
   .u-container {
     min-width: 65rem !important; }
   .container-content {
     flex-direction: column; }
+  .container_below {
+    flex-direction: column; }
   .related-container {
     grid-template-columns: repeat(2, 1fr) !important; }
   .containerG {
     width: 85% !important; }
-  .container {
-    min-width: 65rem !important; }
   main {
-    border-right: none !important; } }
+    border-right: none !important;
+    width: 100% !important; }
+  aside {
+    width: 100% !important; } }
 
-@media (max-width: 700px) {
-  .gif-container, .u-gif-container {
+@media (max-width: 600px) {
+  .gif-container,
+  .u-gif-container {
     grid-template-columns: minmax(30rem, 40rem) !important; }
   .u-container {
     min-width: 0 !important; }
@@ -276,3 +314,9 @@ button:focus {
       order: 1; }
   .container {
     min-width: 0 !important; } }
+
+@keyframes fave-heart {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -2800px 0; } }
