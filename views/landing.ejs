@@ -10,17 +10,89 @@
         <%post.forEach(newPost=>{%>
         <div class="gif hover-like">
             <i class="far fa-heart hidden"></i>
-            <p class="tags">#awesome #cool</p>
-            <a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img class="gif-img"
-                    src="<%=newPost.url%>"></a>
-        </div>
-        <%});%>
-    </div>
-</div>
+            <div class="container">
+                <div class="gif-container">
+                    <%post.forEach(newPost=>{%>
+
+                    <div class="gif hover-like">
+                        <!-- <div class="stage"> -->
+                        <div id="heart" class="heart"></div>
+                        <!-- </div> -->
+                        <p class="tags">#awesome #cool</p>
+                        <a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img
+                                class="gif-img" src="<%=newPost.url%>"></a>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <<<<<<< HEAD=======<!-- Script for adding heart animation -->
+                <script>
+                    var ht = document.querySelectorAll('#heart');
 
 
+                    document.addEventListener('click', e => {
+                        if (e.target.classList.contains('heart')) {
+                            e.target.classList.toggle('is_active');
+                        }
+                    });
+                </script>
+                <!-- // //heart.classList.toggle('far');
+// }
 
+// function myFunction(e) {
+// e.preventDefault();
+// //do something differant context menu
+// heart.classList.toggle('fas fa-heart');
+// return false;
+// }
+// var like = document.querySelectorAll('.gif.hover-like');
+
+// like.addEventListener('contextmenu', function (ev) {
+// ev.preventDefault();
+// toggles();
+// alert('success!');
+// return false;
+// }, false) -->
+
+                <!--
+   ------FOR HOLD AND LIKE-------------
+<script>
+    var element = document.querySelectorAll('#heart');
+    (function () {
+        var start,
+            end;
+
+
+        element.onmousedown = function () {
+            start = +Date.now(); // get unix-timestamp in milliseconds
+        };
+
+
+        element.onmouseup = function () {
+            end = +Date.now();
+
+            var diff = end - start; // time difference in milliseconds
+            if (diff > 1000) { //2 second delay
+                toBeExecutedNMillisecondsAfterAnchorWasClicked();
+            }
+        };
+
+    })();
+>>>>>>> 5886e8625b7608c70521f1514d976352d3b7e60d
+
+    function toBeExecutedNMillisecondsAfterAnchorWasClicked() {
+        console.log('function start');
+        element.classList.toggle('fas');
+        element.classList.toggle('far');
+    }
+</script>
+
+
+<<<<<<< HEAD
 <!-- SCRIPT FOR ADDING GIF IN GIF-CONTAINER 
+=======
+ SCRIPT FOR ADDING GIF IN GIF-CONTAINER
+>>>>>>> 5886e8625b7608c70521f1514d976352d3b7e60d
     <script>
         var gifContainer = document.querySelector('.gif-container');
         // var columns = document.querySelectorAll('.column');
@@ -94,5 +166,5 @@
         });
     </script> -->
 
-<script src="js/landing.js"></script>
-<%- include("partials/footer") %>
+                <script src="js/landing.js"></script>
+                <%- include("partials/footer") %>

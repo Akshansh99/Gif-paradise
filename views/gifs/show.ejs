@@ -1,46 +1,51 @@
 <%- include("../partials/header") %>
-    <div class="containerG">
-        <div class="container-content">
-            <main>
-                <div class="gif">
-                    <h1>
-                        <%= post.title %>
-                    </h1>
-                    <image autoplay muted loop src="<%= post.url %>"></image>
-    
-                    <div class="author">
-                        <p>
-                            -by <strong><a href="/user/<%=post.uploaderID%>/<%=post.uploader%>"><%=post.uploader%></a> </strong>
-                        </p>
-                    </div>
-                    <button class="prev">prev</button>
-                    <button class="next">next</button>
+<div class="containerG">
+    <div class="container-content">
+        <main>
+            <div class="gif">
+                <h1>
+                    <%= post.title %>
+                </h1>
+                <image autoplay muted loop src="<%= post.url %>"></image>
+
+                <div class="author">
+                    <p>
+                        -by <strong><a href="/user/<%=post.uploaderID%>/<%=post.uploader%>"><%=post.uploader%></a>
+                        </strong>
+                    </p>
                 </div>
-            </main>
-            
-            <aside>
-                <button>like 💜</button>
-                <p class="views">3,456,789 views</p>
-    
-                <div class="share">
-                    <h3>Share</h3>
-                    <div class="share-button">
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-twitter"></a>
-                        <a href="#" class="fa fa-reddit"></a>
-                        <a href="#" class="fa fa-instagram"></a>
-                    </div>
-                    
+                <button class="prev">prev</button>
+                <button class="next">next</button>
+            </div>
+        </main>
+
+        <aside>
+            <button>like 💜</button>
+
+            <p class="views">3,456,789 views</p>
+
+            <div class="share">
+                <h3>Share</h3>
+                <div class="share-button">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-reddit"></a>
+                    <a href="#" class="fa fa-instagram"></a>
                 </div>
-                <div class="link">
-                    <h3>URL</h3>
-                    <div class="url">
-                        <div class="url-address"><%=post.url%></div>
-                    </div>
+
+            </div>
+            <div class="link">
+                <h3>URL</h3>
+                <div class="url">
+                    <div class="url-address"><%=post.url%></div>
                 </div>
-            </aside>
-        </div>
-        <div class="related">
+            </div>
+        </aside>
+    </div>
+
+    <div class="container_below">
+        <main>
+
             <h1>Related</h1>
             <div class="related-container">
                 <div class="related-gif">
@@ -54,7 +59,12 @@
                     <a href="#"><img src="https://thumbs.gfycat.com/ImpressiveSpecificArrowworm.webp"></a>
                 </div>
             </div>
-            
-        </div>
+
+
+        </main>
+        <aside>
+
+        </aside>
     </div>
-    <%- include("../partials/footer") %>
+</div>
+<%- include("../partials/footer") %>
