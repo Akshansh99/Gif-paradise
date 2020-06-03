@@ -1,42 +1,33 @@
 <%- include("partials/header") %>
 
-<form action="/categories" method="POST">
-    <input type="submit" name="category" value="horror" id="horror">
-    <input type="submit" name="category" value="sports" id="sports">
-    <input type="submit" name="category" value="reaction" id="reaction">
-</form>
 <div class="container">
     <div class="gif-container">
         <%post.forEach(newPost=>{%>
+
         <div class="gif hover-like">
-            <i class="far fa-heart hidden"></i>
-            <div class="container">
-                <div class="gif-container">
-                    <%post.forEach(newPost=>{%>
+            <!-- <div class="stage"> -->
+            <div id="heart" class="heart"></div>
+            <!-- </div> -->
+            <p class="tags">#awesome #cool</p>
+            <a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img class="gif-img"
+                    src="<%=newPost.url%>"></a>
+        </div>
+        <%});%>
+    </div>
+</div>
 
-                    <div class="gif hover-like">
-                        <!-- <div class="stage"> -->
-                        <div id="heart" class="heart"></div>
-                        <!-- </div> -->
-                        <p class="tags">#awesome #cool</p>
-                        <a href="/posts/<%=newPost._id%>/<%=newPost.title.replace(/\s+/g, '-').toLowerCase()%>"><img
-                                class="gif-img" src="<%=newPost.url%>"></a>
-                    </div>
-                    <%});%>
-                </div>
-            </div>
-            <<<<<<< HEAD=======<!-- Script for adding heart animation -->
-                <script>
-                    var ht = document.querySelectorAll('#heart');
+<!-- Script for adding heart animation -->
+<script>
+    var ht = document.querySelectorAll('#heart');
 
 
-                    document.addEventListener('click', e => {
-                        if (e.target.classList.contains('heart')) {
-                            e.target.classList.toggle('is_active');
-                        }
-                    });
-                </script>
-                <!-- // //heart.classList.toggle('far');
+    document.addEventListener('click', e => {
+        if (e.target.classList.contains('heart')) {
+            e.target.classList.toggle('is_active');
+        }
+    });
+</script>
+<!-- // //heart.classList.toggle('far');
 // }
 
 // function myFunction(e) {
@@ -54,7 +45,7 @@
 // return false;
 // }, false) -->
 
-                <!--
+<!--
    ------FOR HOLD AND LIKE-------------
 <script>
     var element = document.querySelectorAll('#heart');
@@ -78,7 +69,6 @@
         };
 
     })();
->>>>>>> 5886e8625b7608c70521f1514d976352d3b7e60d
 
     function toBeExecutedNMillisecondsAfterAnchorWasClicked() {
         console.log('function start');
@@ -88,11 +78,7 @@
 </script>
 
 
-<<<<<<< HEAD
-<!-- SCRIPT FOR ADDING GIF IN GIF-CONTAINER 
-=======
  SCRIPT FOR ADDING GIF IN GIF-CONTAINER
->>>>>>> 5886e8625b7608c70521f1514d976352d3b7e60d
     <script>
         var gifContainer = document.querySelector('.gif-container');
         // var columns = document.querySelectorAll('.column');
@@ -166,5 +152,5 @@
         });
     </script> -->
 
-                <script src="js/landing.js"></script>
-                <%- include("partials/footer") %>
+<script src="js/landing.js"></script>
+<%- include("partials/footer") %>
