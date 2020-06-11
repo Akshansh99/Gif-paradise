@@ -11,23 +11,35 @@
 
 <body>
     <div class="navbar">
-        <div class="nav-logo"><a href="/">GIF-PARADISE</a></div>
+        <div class="nav-logo"><a href="/"><span class="big">GIF-PARADISE</span><span class="small">GP</span></a></div>
         <div class="nav-items">
-            <li class="nav-item"><a href="/add">Upload</a></li>
-            <li class="nav-item"><a href="#">Trending</a></li>
-            <li class="nav-item"><a href="#">Hot</a></li>
-            <li class="nav-item"><a href="#">AllTimeBest</a></li>
-            <% if(!currentUser){ %>
-                <li class="nav-item"><a href="/register">Register</a></li>
-                <li class="nav-item"><a href="/login">Login</a></li>
-                <%} else{ %>
-                    <li class="nav-item">
-                        <a href="/user/<%=currentUser._id%>/<%=currentUser.username%>" class="nav-user">
-                            <p><%=currentUser.username%></p>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" alt="">
-                        </a>
-                    </li>
-                    <!-- <li class="nav-item"><a href="/logout">Logout</a></li> -->
-                    <%}%>
+            <li class="nav-item home"><a href="#"><span class="big">Home</span><span class="small"><i class="fas fa-home"></i></span></a></li>
+            <li class="nav-item hot"><a href="#"><span class="big">Hot</span><span class="small"><i class="fab fa-hotjar"></i></span></a></li>
+            <li class="nav-item favorite"><a href="#"><span class="big">Favorite</span><span class="small"><i class="fas fa-heart"></i></span></a></li>
+            <li class="nav-item search"><a href="#"><span class="big">Search</span><span class="small"><i class="fas fa-search"></i></span></a></li>
         </div>
+        <div class="nav-profile">
+            <% if(!currentUser){ %>
+                <div class="dropdown">
+                    <div class="dropbtn"><img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.pngn" alt=""></div>
+                    <div class="dropdown-content">
+                        <a href="/register">Register</a>
+                        <a href="/login">Login</a>
+                    </div>
+                </div>
+            <%} else{ %>
+                <div class="dropdown">
+                    <div class="dropbtn"><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" alt=""></div>
+                    <div class="dropdown-content">
+                        <a href="/user/<%=currentUser._id%>/<%=currentUser.username%>">Profile</a>
+                        <a href="/add">Upload</a>
+                        <a href="/logout">Logout</a>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+            
+
+    <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" alt=""> -->
+
     </div>
