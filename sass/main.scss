@@ -12,9 +12,9 @@
 // $Graphic-Design-5-hex: #171C26;
 $color-purple1: #886fbf;
 $color-background: #adaabf;
-$color-purple2: #8e80bf;
+$color-purple2: rgb(142, 128, 191);
 $color-dark: #171c26;
-$color-purple3: #574ba6;
+$color-purple3: rgb(87, 75, 166);
 $color-gray: #eee;
 
 //basic
@@ -32,6 +32,11 @@ html {
     margin: 0;
     padding: 0;
     font-size: 1.6rem;
+}
+
+body{
+    position: relative;
+    
 }
 
 
@@ -120,6 +125,74 @@ html {
         }
 
     }
+}
+
+.black-background{
+    position:absolute;
+    top:0%;
+    left:0%;
+    height: 100%;
+    width:100%;
+    background: rgba(0,0,0,0.3);
+    display:none;
+    z-index:2;
+}
+
+//login-overlay...
+.login-overlay{
+    position: fixed;
+    display:none;
+    top:50%;
+
+    left:50%;
+    transform: translate(-50%,-50%);
+    min-width:35rem;
+    max-width: 40rem;
+    width:90%;
+    
+    height:60%;
+    z-index:4;
+    border-radius: 0.8rem;
+    // background:yellow;
+    background-image: linear-gradient(to right bottom,rgba(87, 75, 166,0.7),rgba(142, 128, 191,0.7)) ,url("https://media1.tenor.com/images/80e20dc0cf09056a93b693ee276572bd/tenor.gif?itemid=17336247");
+    background-repeat: no-repeat;
+    background-size: cover;
+    .cancel{
+        // width:100%;
+        
+       
+        .fa-times{
+            float:right;
+            font-size:3rem;
+            color:white;
+            margin-top:1rem;
+            margin-right:1.5rem;
+            
+        }
+    }
+        .login-content{
+            width:60%;
+            padding:2rem;
+            height:75%;
+            background:white;
+            margin:12.5% auto;
+            border-radius: 0.8rem;
+            display:flex;
+            flex-direction: column;
+            
+            align-items: center;
+            .login-form{
+                margin:1rem 0;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                input{
+                    margin:0.5rem 0;
+                    max-width:100%;
+                }
+            }
+        }
+    
 }
 
 
