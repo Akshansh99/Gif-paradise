@@ -149,12 +149,13 @@ body{
     min-width:35rem;
     max-width: 40rem;
     width:90%;
-    
+    min-height: 25rem;
+    max-height: 40rem;
     height:60%;
     z-index:4;
     border-radius: 0.8rem;
     // background:yellow;
-    background-image: linear-gradient(to right bottom,rgba(87, 75, 166,0.7),rgba(142, 128, 191,0.7)) ,url("https://media1.tenor.com/images/80e20dc0cf09056a93b693ee276572bd/tenor.gif?itemid=17336247");
+    background-image: linear-gradient(to right bottom,rgba(87, 75, 166,0.7),rgba(142, 128, 191,0.7)) ,url("https://media1.tenor.com/images/9315323caf60de2a47ef3d7be106784a/tenor.gif?itemid=14096215");
     background-repeat: no-repeat;
     background-size: cover;
     .cancel{
