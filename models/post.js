@@ -5,7 +5,8 @@ const postSchema = new mongoose.Schema({
     url: String,
     uploader: String,
     uploaderID: String,
-    category: String
+    category: String,
+    views: Number
 });
 
 module.exports = mongoose.model("post", postSchema);

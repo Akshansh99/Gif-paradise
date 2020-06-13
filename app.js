@@ -59,7 +59,7 @@ ROUTES
 
 //Landing Page
 //Most of the routes redirect here
-app.get("/", async (req, res) => {
+app.get("/", async(req, res) => {
     // post.find({}, (err, postcreated) => {
     //     if (err) {
     //         console.log(err);
@@ -72,7 +72,7 @@ app.get("/", async (req, res) => {
 
     try {
         const postFound = await post.find({});
-        console.log(postFound);
+        // console.log(postFound);
         res.render("landing", {
             post: postFound
         });
@@ -105,7 +105,7 @@ app.post("/categories", (req, res) => {
 });
 
 //Finding gifs by their unique ids
-app.get("/posts/:id/:title", async (req, res) => {
+app.get("/posts/:id/:title", async(req, res) => {
 
     // post.findById(req.params.id, (err, foundPost) => {
     //     if (err) {
@@ -120,8 +120,11 @@ app.get("/posts/:id/:title", async (req, res) => {
 
     try {
         const foundPost = await post.findById(req.params.id);
+        const updateViews = await post.findOneAndUpdate({ "_id": req.params.id }, { $inc: { "views": 1 } }, { returnNewDocument: true });
+        // console.log(updateViews);
         res.render("gifs/show", {
-            post: foundPost
+            post: foundPost,
+            viewUp: updateViews
         })
     } catch (err) {
         console.log(err);
@@ -137,15 +140,16 @@ app.get("/add", isLoggedIn, (req, res) => {
 
 //Adding new posts
 //Post route
-app.post("/add", async (req, res) => {
+app.post("/add", async(req, res) => {
     const postObject = {
-        title: req.body.title,
-        url: req.body.url,
-        uploader: req.user.username,
-        uploaderID: req.user._id,
-        category: req.body.category
-    }
-    // console.log(req.body.category);
+            title: req.body.title,
+            url: req.body.url,
+            uploader: req.user.username,
+            uploaderID: req.user._id,
+            category: req.body.category,
+            views: 1
+        }
+        // console.log(req.body.category);
 
     //================================
     //ASYNC AWAIT (Best)
@@ -155,7 +159,7 @@ app.post("/add", async (req, res) => {
         const postcreate = await post.create(postObject);
         const postMade = await userLogged.posts.push(postcreate);
         const postLinked = await userLogged.save();
-        console.log(postLinked);
+        // console.log(postLinked);
         res.redirect("/");
     } catch (err) {
         console.log(err);
@@ -220,7 +224,7 @@ app.get("/register", isNotLoggedIn, (req, res) => {
 });
 
 //Register page-POST route
-app.post("/register", async (req, res) => {
+app.post("/register", async(req, res) => {
     // Storing username to variable
     const userInfo = new User({
         username: req.body.username
@@ -279,7 +283,7 @@ app.get("/logout", (req, res) => {
 });
 
 //Profile page for a user 
-app.get("/user/:userID/:username", async (req, res) => {
+app.get("/user/:userID/:username", async(req, res) => {
     // User.findById(req.params.userID, (err, foundUser) => {
     //     if (err) {
     //         console.log(err);
