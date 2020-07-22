@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/main.css" />
-    <script src="https://kit.fontawesome.com/f15166f48d.js" crossorigin="anonymous"></script>    
+    <script src="https://kit.fontawesome.com/f15166f48d.js" crossorigin="anonymous"></script>
     <title>GIF-PARADISE</title>
 </head>
 
@@ -22,26 +22,26 @@
             <% if(!currentUser){ %>
                 <div class="dropdown">
                     <div class="dropbtn" onclick="openForm()" id="login-btn"><img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt=""></div>
-                    
-                </div>
-            <%} else{ %>
-                <div class="dropdown">
-                    <div class="dropbtn"><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" alt=""></div>
-                    <div class="dropdown-content">
-                        <a href="/user/<%=currentUser._id%>/<%=currentUser.username%>">Profile</a>
-                        <a href="/add">Upload</a>
-                        <a href="/logout">Logout</a>
-                    </div>
-                </div>
-            <%}%>
-        </div>
-            
 
-    <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" alt=""> -->
+                </div>
+                <%} else{ %>
+                    <div class="dropdown">
+                        <div class="dropbtn"><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" alt=""></div>
+                        <div class="dropdown-content">
+                            <a href="/user/<%=currentUser._id%>/<%=currentUser.username||currentUser.googleName%>">Profile</a>
+                            <a href="/add">Upload</a>
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+                    <%}%>
+        </div>
+
+
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" alt=""> -->
 
     </div>
     <div class="black-background">
-        
+
     </div>
     <div class="login-overlay" id="login-overlay">
         <div class="cancel" id="cancel" onclick="closeForm()">
@@ -57,5 +57,5 @@
             </form>
         </div>
 
-        
+
     </div>

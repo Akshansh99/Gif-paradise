@@ -116,6 +116,7 @@ passport.use(
         // passport callback function
         //check if user already exists in our db with the given profile ID
         User.findOne({ googleId: profile.id }).then((currentUser) => {
+            console.log(profile);
             if (currentUser) {
                 //if we already have a record with the given profile ID
                 done(null, currentUser);
@@ -123,6 +124,7 @@ passport.use(
                 //if not, create a new user 
                 new User({
                     googleId: profile.id,
+                    googleName: profile.displayName
                 }).save().then((newUser) => {
                     done(null, newUser);
                 });
@@ -230,7 +232,7 @@ app.post("/add", async(req, res) => {
     const postObject = {
             title: req.body.title,
             url: req.body.url,
-            uploader: req.user.username,
+            uploader: req.user.username || req.user.googleName,
             uploaderID: req.user._id,
             category: req.body.category,
             views: 1
@@ -369,7 +371,7 @@ app.get("/logout", (req, res) => {
 });
 
 //Profile page for a user 
-app.get("/user/:userID/", async(req, res) => {
+app.get("/user/:userID/:username", async(req, res) => {
     // User.findById(req.params.userID, (err, foundUser) => {
     //     if (err) {
     //         console.log(err);

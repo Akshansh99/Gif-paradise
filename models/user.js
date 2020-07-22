@@ -10,6 +10,7 @@ const post = require("./post");
 
 const userSchema = new mongoose.Schema({
     googleId: String,
+    googleName: String,
     username: String,
     password: String,
     posts: [post.schema.obj]
