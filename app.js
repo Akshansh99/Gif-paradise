@@ -6,7 +6,34 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
-const post = require("./models/post")
+const post = require("./models/post");
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
+const cookieSession = require('cookie-session');
+
+app.use(cookieSession({
+    name: 'gif-paradise',
+    keys: ['key1', 'key2']
+}))
+
+// passport.use(new GoogleStrategy());
+
+// passport.use(new GoogleStrategy({
+//         clientID: "256380785673-ioqj0i7hjrc5rsnhe253m4b980pbfp4l.apps.googleusercontent.com",
+//         clientSecret: "-xaftmu8UdjTS4oi7RWPNtHl",
+//         callbackURL: "/google/redirect"
+
+//         // passReqToCallback: true
+//     },
+//     // function(request, accessToken, refreshToken, profile, done) {
+//     //     User.findOrCreate({ googleId: profile.id }, function(err, user) {
+//     //         return done(err, user);
+//     //     });
+//     // }
+
+// ));
+
+
+
 
 //Basic configurations for views and mongoDB
 app.set("view engine", "ejs");
@@ -37,9 +64,32 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+    User.findById(id).then(user => {
+        done(null, user);
+    });
+});
+
+
+
+// app.get('/google',
+//     passport.authenticate('google', {
+//         scope: ['https://www.googleapis.com/auth/userinfo.email',
+//             'https://www.googleapis.com/auth/userinfo.profile'
+//         ]
+//     }));
+
+// app.get('/google/callback',
+//     passport.authenticate('google', {
+//         successRedirect: '/',
+//         failureRedirect: '/register'
+//     }));
 
 
 //Middleware to pass user information , i.e, username,etc
@@ -56,6 +106,42 @@ app.use((req, res, next) => {
 ROUTES
 =======================
 */
+
+passport.use(
+    new GoogleStrategy({
+        clientID: "256380785673-ioqj0i7hjrc5rsnhe253m4b980pbfp4l.apps.googleusercontent.com",
+        clientSecret: "-xaftmu8UdjTS4oi7RWPNtHl",
+        callbackURL: 'http://localhost:3000/google/redirect'
+    }, (accessToken, refreshToken, profile, done) => {
+        // passport callback function
+        //check if user already exists in our db with the given profile ID
+        User.findOne({ googleId: profile.id }).then((currentUser) => {
+            if (currentUser) {
+                //if we already have a record with the given profile ID
+                done(null, currentUser);
+            } else {
+                //if not, create a new user 
+                new User({
+                    googleId: profile.id,
+                }).save().then((newUser) => {
+                    done(null, newUser);
+                });
+            }
+        })
+    })
+);
+
+
+app.get("/google", passport.authenticate("google", {
+    scope: ["profile", "email"]
+}));
+
+// app.get("/google/redirect", passport.authenticate('google'));
+
+app.get("/google/redirect", passport.authenticate("google"), (req, res) => {
+    res.redirect('/');
+});
+
 
 //Landing Page
 //Most of the routes redirect here
@@ -283,7 +369,7 @@ app.get("/logout", (req, res) => {
 });
 
 //Profile page for a user 
-app.get("/user/:userID/:username", async(req, res) => {
+app.get("/user/:userID/", async(req, res) => {
     // User.findById(req.params.userID, (err, foundUser) => {
     //     if (err) {
     //         console.log(err);
