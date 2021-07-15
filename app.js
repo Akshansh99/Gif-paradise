@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 // mongoose.connect('mongodb://localhost:27017/gif-paradise', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect('mongodb+srv://Gif-paradise:gifparadise123@cluster0-2h4su.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://Akshansh:1234@contactkeeper.abnlk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
