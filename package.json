@@ -17,7 +17,7 @@
         "passport-local-mongoose": "^6.0.1"
     },
     "devDependencies": {
-        "node-sass": "^4.14.1"
+        "node-sass": "^7.0.0"
     },
     "scripts": {
         "compile:sass": "node-sass sass/main.scss public/stylesheets/main.css -w",
